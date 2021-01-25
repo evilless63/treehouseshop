@@ -1,0 +1,1 @@
+[2020-12-17 01:12:45.673] [renderer1] [error] [File Watcher (node.js)] Error: ENOENT: no such file or directory, stat '/var/www/html/laravel-admin-panel.local/.vscode'
