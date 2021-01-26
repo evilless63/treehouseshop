@@ -1,10 +1,25 @@
 <?php
 
+    Route::get('/', 'UserPublicController@index')
+                ->name('blog.user.index');
 
+    Route::get('/catalog', 'UserPublicController@catalog')
+                ->name('blog.user.catalog');
 
-    Route::get('/', function () {
-        return view('blog.user.public.index');
-    });
+    Route::get('/login', 'UserPublicController@login')
+                ->name('blog.user.login');
+    
+    Route::get('/product', 'UserPublicController@product')
+                ->name('blog.user.product');
+    
+    Route::get('/cart', 'UserPublicController@cart')
+                ->name('blog.user.cart');
+    
+    Route::get('/blog', 'UserPublicController@blogCards')
+                ->name('blog.user.blog_cards');
+
+    Route::get('/blog-page', 'UserPublicController@blogPage')
+                ->name('blog.user.blog_page');
 
     Auth::routes();
 
@@ -14,6 +29,22 @@
 
     /** Admin side */
     Route::group(['middleware' => ['status','auth']], function () {
+
+        Route::get('/profile', 'UserPrivateController@profile')
+                ->name('blog.user.profile');
+        
+        Route::get('/edit-profile', 'UserPrivateController@editProfile')
+                ->name('blog.user.edit_profile');
+
+        Route::get('/orders', 'UserPrivateController@orders')
+                ->name('blog.user.orders');
+
+        Route::get('/subscribe', 'UserPrivateController@subscribe')
+                ->name('blog.user.subscribe');
+
+        Route::get('/wishlist', 'UserPrivateController@wishlist')
+                ->name('blog.user.wishlist');
+
         $groupeData = [
             'namespace' => 'Blog\Admin',
             'prefix' => 'admin',

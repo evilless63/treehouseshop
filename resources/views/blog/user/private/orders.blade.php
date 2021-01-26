@@ -241,3 +241,7 @@
     }
   </style>
 @endsection
+
+@section('html-class')
+<html lang="ru-RU" class="">
+@endsection
