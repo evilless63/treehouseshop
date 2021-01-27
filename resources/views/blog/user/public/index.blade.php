@@ -199,9 +199,9 @@
                 </a>
               </div>
 
-              <div class="categories-card" data-title="Удобная и красивая детская одежда">
+              <div class="categories-card" data-title="Удобная детская одежда">
                 <div class="categories-card__head">
-                  <div class="categories-card__title">Удобная и красивая детская одежда</div>
+                  <div class="categories-card__title">Удобная детская одежда</div>
                   <a href="{{route('blog.user.catalog', 3)}}" class="categories-card__href">Перейти</a>
                 </div>
                 <a href="{{route('blog.user.catalog', 3)}}" class="categories-card__link">
@@ -218,9 +218,9 @@
         <div class="categories-cards">
           <div class="categories-cards__holder">
             <div class="categories-cards__list">
-              <div class="categories-card" data-title="Удобная и красивая детская одежда">
+              <div class="categories-card" data-title="Удобная детская одежда">
                 <div class="categories-card__head">
-                  <div class="categories-card__title">Удобная и красивая детская одежда</div>
+                  <div class="categories-card__title">Удобная детская одежда</div>
                   <a href="{{route('blog.user.catalog', 3)}} class="categories-card__href">Перейти</a>
                 </div>
                 <a href="{{route('blog.user.catalog', 3)}}" class="categories-card__link">
