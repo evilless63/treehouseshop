@@ -330,7 +330,7 @@
         <div class="card__holder">
           <div class="page__row product-info">
             <div class="page__sidebar page__sidebar_left js-sticky-sidebar card__back" data-holder=".card">
-              <a href="/catalog/all" class="page-back page-back--hidden">
+              <a href="{{route('blog.user.catalog', $product->category_id)}}" class="page-back page-back--hidden">
                 <div class="page-back__holder">
                   <i class="page-back__icon"></i><span class="page-back__text page-back__text"
                     data-js-label="Назад">Посмотреть все</span>
@@ -345,53 +345,14 @@
                     <div class="card-media card__media">
                       <div class="card-media__thumbs">
                         <div class="card-media__thumbs-list js-media-thumbs">
+                          @foreach($images as $image)
                           <button class="card-media__thumbs-item">
                             <img
-                              src="/images/58x0_100_in/uploads/images/CATALOG/jersey/104825/5fed8cda580b5-12storeez-dekabr-16-12-200561.jpg"
-                              alt="Брюки из трикотажа с манжетами" class="card-media__thumbs-image"
+                              src="{{asset('uploads/gallery/' . $image)}}"
+                              alt="{{$product->title}}" class="card-media__thumbs-image"
                               style="width: 58px" />
                           </button>
-                          <button class="card-media__thumbs-item">
-                            <img
-                              src="/images/58x0_100_in/uploads/images/CATALOG/jersey/104825/5fed8cda58467-12storeez-dekabr-16-12-200600.jpg"
-                              alt="Брюки из трикотажа с манжетами" class="card-media__thumbs-image"
-                              style="width: 58px" />
-                          </button>
-                          <button class="card-media__thumbs-item">
-                            <img
-                              src="/images/58x0_100_in/uploads/images/CATALOG/jersey/104825/5fed8cda5871c-12storeez-dekabr-16-12-200714.jpg"
-                              alt="Брюки из трикотажа с манжетами" class="card-media__thumbs-image"
-                              style="width: 58px" />
-                          </button>
-                          <button class="card-media__thumbs-item">
-                            <img
-                              src="/images/58x0_100_in/uploads/images/CATALOG/jersey/104825/5fed8cda588ac-12storeez-dekabr-16-12-200617.jpg"
-                              alt="Брюки из трикотажа с манжетами" class="card-media__thumbs-image"
-                              style="width: 58px" />
-                          </button>
-                          <button class="card-media__thumbs-item">
-                            <img
-                              src="/images/58x0_100_in/uploads/images/CATALOG/jersey/104825/5fed8cda585ad-12storeez-dekabr-16-12-200644.jpg"
-                              alt="Брюки из трикотажа с манжетами" class="card-media__thumbs-image"
-                              style="width: 58px" />
-                          </button>
-                          <button class="card-media__thumbs-item">
-                            <img
-                              src="/images/58x0_100_in/uploads/images/CATALOG/jersey/104825/5fed8cda589dd-12storeez-dekabr-16-12-200675.jpg"
-                              alt="Брюки из трикотажа с манжетами" class="card-media__thumbs-image"
-                              style="width: 58px" />
-                          </button>
-                          <button class="card-media__thumbs-item">
-                            <img
-                              src="/images/58x0_100_in/uploads/images/CATALOG/jersey/104825/5fed8cec1df85-0182-ghost.jpg"
-                              alt="Брюки из трикотажа с манжетами" class="card-media__thumbs-image"
-                              style="width: 58px" />
-                          </button>
-                          <button class="card-media__thumbs-item">
-                            <img src="/images/58x0_100_in/uploads/images/CATALOG/jersey/104825/5fed8cf87ec78-0335.jpg"
-                              alt="Брюки из трикотажа с манжетами" class="card-media__thumbs-image"
-                              style="width: 58px" />
-                          </button>
+                          @endforeach
 
                         </div>
                       </div>
@@ -407,87 +368,18 @@
                       <div class="card-media__list-wrapper">
                         <div class="card-media__list-scroll">
                           <div class="card-media__list js-card-media-slider">
-                            <div class="card-media__item" style="z-index: 7" data-ga-index="1" data-type="image">
+                            @foreach($images as $image)
+                            <div class="card-media__item" style="z-index: 7" data-ga-index="{{$loop->iteration}}" data-type="image">
                               <div class="card-media__item-inner">
                                 <img
-                                  src="/images/100x0_90_out/uploads/images/CATALOG/jersey/104825/5fed8cda580b5-12storeez-dekabr-16-12-200561.jpg"
-                                  data-observer-src="/images/750x0_90_out/uploads/images/CATALOG/jersey/104825/5fed8cda580b5-12storeez-dekabr-16-12-200561.jpg"
-                                  alt="Брюки из трикотажа с манжетами"
-                                  data-zoom-src="/images/1920x0_90_out/uploads/images/CATALOG/jersey/104825/5fed8cda580b5-12storeez-dekabr-16-12-200561.jpg"
+                                  src="{{asset('uploads/gallery/' . $image)}}"
+                                  data-observer-src="{{asset('uploads/gallery/' . $image)}}"
+                                  alt="{{$product->title}}"
+                                  data-zoom-src="{{asset('uploads/gallery/' . $image)}}"
                                   class="card-media__image" />
                               </div>
                             </div>
-                            <div class="card-media__item" data-ga-index="2" data-type="image">
-                              <div class="card-media__item-inner">
-                                <img
-                                  src="/images/100x0_90_out/uploads/images/CATALOG/jersey/104825/5fed8cda58467-12storeez-dekabr-16-12-200600.jpg"
-                                  data-observer-src="/images/750x0_90_out/uploads/images/CATALOG/jersey/104825/5fed8cda58467-12storeez-dekabr-16-12-200600.jpg"
-                                  alt="Брюки из трикотажа с манжетами"
-                                  data-zoom-src="/images/1920x0_90_out/uploads/images/CATALOG/jersey/104825/5fed8cda58467-12storeez-dekabr-16-12-200600.jpg"
-                                  class="card-media__image" />
-                              </div>
-                            </div>
-                            <div class="card-media__item" data-ga-index="3" data-type="image">
-                              <div class="card-media__item-inner">
-                                <img
-                                  src="/images/100x0_90_out/uploads/images/CATALOG/jersey/104825/5fed8cda5871c-12storeez-dekabr-16-12-200714.jpg"
-                                  data-observer-src="/images/750x0_90_out/uploads/images/CATALOG/jersey/104825/5fed8cda5871c-12storeez-dekabr-16-12-200714.jpg"
-                                  alt="Брюки из трикотажа с манжетами"
-                                  data-zoom-src="/images/1920x0_90_out/uploads/images/CATALOG/jersey/104825/5fed8cda5871c-12storeez-dekabr-16-12-200714.jpg"
-                                  class="card-media__image" />
-                              </div>
-                            </div>
-                            <div class="card-media__item" data-ga-index="4" data-type="image">
-                              <div class="card-media__item-inner">
-                                <img
-                                  src="/images/100x0_90_out/uploads/images/CATALOG/jersey/104825/5fed8cda588ac-12storeez-dekabr-16-12-200617.jpg"
-                                  data-observer-src="/images/750x0_90_out/uploads/images/CATALOG/jersey/104825/5fed8cda588ac-12storeez-dekabr-16-12-200617.jpg"
-                                  alt="Брюки из трикотажа с манжетами"
-                                  data-zoom-src="/images/1920x0_90_out/uploads/images/CATALOG/jersey/104825/5fed8cda588ac-12storeez-dekabr-16-12-200617.jpg"
-                                  class="card-media__image" />
-                              </div>
-                            </div>
-                            <div class="card-media__item" data-ga-index="5" data-type="image">
-                              <div class="card-media__item-inner">
-                                <img
-                                  src="/images/100x0_90_out/uploads/images/CATALOG/jersey/104825/5fed8cda585ad-12storeez-dekabr-16-12-200644.jpg"
-                                  data-observer-src="/images/750x0_90_out/uploads/images/CATALOG/jersey/104825/5fed8cda585ad-12storeez-dekabr-16-12-200644.jpg"
-                                  alt="Брюки из трикотажа с манжетами"
-                                  data-zoom-src="/images/1920x0_90_out/uploads/images/CATALOG/jersey/104825/5fed8cda585ad-12storeez-dekabr-16-12-200644.jpg"
-                                  class="card-media__image" />
-                              </div>
-                            </div>
-                            <div class="card-media__item" data-ga-index="6" data-type="image">
-                              <div class="card-media__item-inner">
-                                <img
-                                  src="/images/100x0_90_out/uploads/images/CATALOG/jersey/104825/5fed8cda589dd-12storeez-dekabr-16-12-200675.jpg"
-                                  data-observer-src="/images/750x0_90_out/uploads/images/CATALOG/jersey/104825/5fed8cda589dd-12storeez-dekabr-16-12-200675.jpg"
-                                  alt="Брюки из трикотажа с манжетами"
-                                  data-zoom-src="/images/1920x0_90_out/uploads/images/CATALOG/jersey/104825/5fed8cda589dd-12storeez-dekabr-16-12-200675.jpg"
-                                  class="card-media__image" />
-                              </div>
-                            </div>
-                            <div class="card-media__item" data-ga-index="7" data-type="image">
-                              <div class="card-media__item-inner">
-                                <img
-                                  src="/images/100x0_90_out/uploads/images/CATALOG/jersey/104825/5fed8cec1df85-0182-ghost.jpg"
-                                  data-observer-src="/images/750x0_90_out/uploads/images/CATALOG/jersey/104825/5fed8cec1df85-0182-ghost.jpg"
-                                  alt="Брюки из трикотажа с манжетами"
-                                  data-zoom-src="/images/1920x0_90_out/uploads/images/CATALOG/jersey/104825/5fed8cec1df85-0182-ghost.jpg"
-                                  class="card-media__image" />
-                              </div>
-                            </div>
-                            <div class="card-media__item" data-ga-index="8" data-type="image">
-                              <div class="card-media__item-inner">
-                                <img
-                                  src="/images/100x0_90_out/uploads/images/CATALOG/jersey/104825/5fed8cf87ec78-0335.jpg"
-                                  data-observer-src="/images/750x0_90_out/uploads/images/CATALOG/jersey/104825/5fed8cf87ec78-0335.jpg"
-                                  alt="Брюки из трикотажа с манжетами"
-                                  data-zoom-src="/images/1920x0_90_out/uploads/images/CATALOG/jersey/104825/5fed8cf87ec78-0335.jpg"
-                                  class="card-media__image" />
-                              </div>
-                            </div>
-
+                            @endforeach
                           </div>
                         </div>
                       </div>
@@ -517,22 +409,26 @@
 
                         <ul class="card-info__tags">
 
-
+                          @if($product->hit)
+                          <li class="card-info__tag card-info__new ">Bestseller</li>
+                          @endif
+                          @if($product->is_new)
                           <li class="card-info__tag card-info__new ">New</li>
+                          @endif
 
                         </ul>
 
 
                         <h1 class="card-info__title" data-id="105561" data-category="Трикотаж">
-                          Брюки из трикотажа с манжетами </h1>
+                          {{$product->title}} </h1>
                         <div class="card-info__price">
-                          5 980 ₽ </div>
+                          {{$product->price}} ₽ </div>
                       </div>
                     </div>
                     <!-- Тэги, заголовок, цена END -->
 
                     <!-- Цвета -->
-                    <div class="card-colors__wrapper" style="">
+                    <!-- <div class="card-colors__wrapper" style="">
 
                       <div class="card-colors card__colors">
                         <div class="card-colors__list">
@@ -544,14 +440,14 @@
                       <div class="card-colors__wrapper-title">
                         Цвет: <span>Молочный</span>
                       </div>
-                    </div>
+                    </div> -->
                     <!-- Цвета END -->
 
                     <!-- Для админов -->
                     <!-- Для админов END -->
 
                     <!-- Размеры NEW -->
-                    <div class="sizes-selector">
+                    <!-- <div class="sizes-selector">
                       <div class="sizes-selector__title">
                         Выбрать размер
                       </div>
@@ -599,7 +495,7 @@
 
                           <span class="sizes-selector__comment">Подписка</span> </li>
                       </ul>
-                    </div>
+                    </div> -->
                     <!-- Размеры NEW END -->
 
                     <!-- Таблица размеров и обмеров -->
@@ -617,7 +513,7 @@
 
                         <div class="product-button js-product__cart product-button--main">
                           <span class="product-button__label css-hide-mobile css-hide-tablet">Добавить в корзину</span>
-                          <span class="product-button__label css-hide-desktop">В корзину, 5 980 ₽</span>
+                          <span class="product-button__label css-hide-desktop">В корзину, {{$product->price}} ₽</span>
                         </div>
 
                         <a class="product-button product-to-cart" href="/cart">
@@ -634,33 +530,20 @@
 
                     </div>
 
-                    <!----------------------------->
-
-
-                    <!--------- Предзаказ --------->
-
-
-                    <!----------------------------->
-
-
-                    <!--------- Доставка ---------->
-
-
-                    <!----------------------------->
-
-
-                    <!---------- Детали ----------->
 
                     <div class="card-product-details">
                       <h4 class="card-product-details__title">Детали</h4>
                       <ul class="card-product-details__list product-details-list">
                         <li class="product-details-list__item">
-                          Артикул: 104825 </li>
-                        <li class="product-details-list__item">
+                          Артикул: {{$product->sku}} </li>
+                        <!-- <li class="product-details-list__item">
                           Состав: 100% Хлопок </li>
                         <li class="product-details-list__item">
                           Параметры модели: 177 см, грудь 88 см, талия 62 см, бедра 91 см<br />
-                          На модели размер S </li>
+                          На модели размер S </li> -->
+                        <li class="product-details-list__item">
+                          {{$product->content}}
+                        </li>
                       </ul>
                     </div>
                     <!-- Детали END -->
@@ -678,7 +561,7 @@
                             data-ga-label="WhatsApp"><span
                               class="contact-links__icon whatsapp"></span><span>WhatsApp</span></a></li>
                         <li class="card-contact-links__item media-query-show_mobile"><a
-                            href="mailto:12storeez@12storeez.com" data-ga-label="Email"><span
+                            href="mailto:info@domnadereve.com" data-ga-label="Email"><span
                               class="contact-links__icon email"></span><span>Эл. почта</span></a></li>
                         <li class="card-contact-links__item media-query-show_mobile"><a
                             href="tg://resolve?domain=twelvestoreez_bot" target="_blank" data-ga-label="Telegram"><span
@@ -869,6 +752,8 @@
                 <!-- Подробности mobile END -->
               </div>
 
+              
+
               <div id="might-like" class="card__item card__item--slider">
                 <div class="card__item_head">
                   <h2 class="card__title">Вам может понравиться</h2>
@@ -890,17 +775,19 @@
                     data-controls="accompaniments-controls">
                     <div class="catalog-list__holder">
                       <div class="catalog-list__row">
+                      @foreach($related_products as $related_product)
                         <div class="catalog-list__item accompaniment-item" data-id="102449">
-                          <a href="/catalog/trikotaz/futbolka-s-zastezkoj-polo-cernyj"
+                          
+                          <a href="{{route('blog.user.product', $related_product->related_id)}}"
                             class="catalog-list__link accompaniment-link" data-id="102449" data-type="accompaniment">
                             <div class="catalog-list__preview catalog-list__preview--round">
                               <span class="catalog-list__fav catalog-list__fav__in js-rem-fav"
                                 style="display:none"></span>
                               <span class="catalog-list__fav js-add-fav"></span>
                               <img
-                                src="/images/99x125_90_out/uploads/images/CATALOG/top/103840/5f43981f354a2-12storeez-iyul-2020-01856.jpg"
-                                alt="Футболка с застежкой поло"
-                                data-observer-src="/images/398x500_90_out/uploads/images/CATALOG/top/103840/5f43981f354a2-12storeez-iyul-2020-01856.jpg"
+                                src="{{asset('uploads/single/' . $related_product->img)}}"
+                                alt="{{$related_product->title}}"
+                                data-observer-src="{{asset('uploads/single/' . $related_product->img)}}"
                                 class="catalog-list__image" />
                             </div>
 
@@ -917,32 +804,33 @@
                               <!-- Заголовок товара -->
                               <div class="catalog-list__title">
                                 <div class="catalog-list__title-inn">
-                                  <span>Футболка с застежкой поло</span>
+                                  <span>{{$related_product->title}}</span>
                                 </div>
                               </div>
                               <!-- Заголовок товара END -->
 
                               <!-- Цена и скидка товара -->
                               <div class="catalog-list__price">
-                                3 980 ₽ </div>
+                              {{$related_product->price}} ₽ </div>
                               <!-- Цена и скидка товара END -->
 
                             </div>
                           </a>
-
+                          
                           <!-- Цвета -->
-                          <ul class="catalog-list__colors catalog-list-colors">
+                          <!-- <ul class="catalog-list__colors catalog-list-colors">
                             <li class="catalog-list-colors__color " title="Чёрный" style="background: #000000">
                             </li>
-                          </ul>
+                          </ul> -->
                           <!-- Цвета END -->
                         </div>
+                        @endforeach
                       </div>
                     </div>
                   </div>
                 </div>
 
-                <div class="card__item_kimber-accompaniments card__item--slider">
+                <!-- <div class="card__item_kimber-accompaniments card__item--slider">
 
                   <div class="catalog-list card__might-like js-catalog-list-slider accompaniments-block"
                     data-controls="kimber-controls">
@@ -972,37 +860,34 @@
 
                               </div>
 
-                              <!-- Заголовок товара -->
                               <div class="catalog-list__title">
                                 <div class="catalog-list__title-inn">
                                   <span>Блуза с разрезами по бокам (Черный)</span>
                                 </div>
                               </div>
-                              <!-- Заголовок товара END -->
 
-                              <!-- Цена и скидка товара -->
                               <div class="catalog-list__price">
                                 3 980 ₽ <s class="catalog-list__price-old">7 980 ₽</s>
                               </div>
-                              <!-- Цена и скидка товара END -->
+
 
                             </div>
                           </a>
 
-                          <!-- Цвета -->
+
                           <ul class="catalog-list__colors catalog-list-colors">
                             <li class="catalog-list-colors__color " title="Черный" style="background: #000000">
                             </li>
                             <li class="catalog-list-colors__color " title="Бежевый" style="background: #ddbb98">
                             </li>
                           </ul>
-                          <!-- Цвета END -->
+
                         </div>
                         
                       </div>
                     </div>
                   </div>
-                </div>
+                </div> -->
 
                 <div data-popmechanic-embed="16788" data-popmechanic-argument="105561"></div>
 
@@ -1021,17 +906,18 @@
                   data-controls="last-view-controls" data-location="">
                   <div class="catalog-list__holder">
                     <div class="catalog-list__row">
+                      @foreach($recently_viewed_products as $recently_viewed_product)
                       <div class="catalog-list__item last-view-item" data-id="105294">
-                        <a href="/catalog/verhnaa-odezda/suba-iz-eko-meha-korotkaa-zeltyj"
+                        <a href="{{route('blog.user.product', $recently_viewed_product->id)}}"
                           class="catalog-list__link last-view-link" data-type="last_view" data-id="105294"
                           data-category="product_card" data-action="recommendations" data-label="click_last_view">
                           <div class="catalog-list__preview catalog-list__preview--round">
                             <span class="catalog-list__fav catalog-list__fav__in js-rem-fav"></span>
                             <span class="catalog-list__fav js-add-fav" style="display:none"></span>
                             <img
-                              src="/images/99x125_90_out/uploads/images/CATALOG/outerwear/104448/5f6b690b783c3-img-0629.jpg"
-                              alt="Шуба из эко-меха короткая (Желтый)"
-                              data-observer-src="/images/398x500_90_out/uploads/images/CATALOG/outerwear/104448/5f6b690b783c3-img-0629.jpg"
+                              src="{{asset('uploads/single/' . $recently_viewed_product->img)}}"
+                              alt="{{$recently_viewed_product->title}}"
+                              data-observer-src="{{asset('uploads/single/' . $recently_viewed_product->img)}}"
                               class="catalog-list__image" />
                           </div>
 
@@ -1048,33 +934,35 @@
                             <!-- Заголовок товара -->
                             <div class="catalog-list__title">
                               <div class="catalog-list__title-inn">
-                                <span>Шуба из эко-меха короткая (Желтый)</span>
+                                <span>{{$recently_viewed_product->title}}</span>
                               </div>
                             </div>
                             <!-- Заголовок товара END -->
 
                             <!-- Цена и скидка товара -->
                             <div class="catalog-list__price">
-                              9 980 ₽ <s class="catalog-list__price-old">19 980 ₽</s>
+                              {{$recently_viewed_product->price}} ₽ 
+                              <!-- <s class="catalog-list__price-old">19 980 ₽</s> -->
                             </div>
                             <!-- Цена и скидка товара END -->
                           </div>
                         </a>
 
                         <!-- Цвета -->
-                        <ul class="catalog-list__colors catalog-list-colors">
+                        <!-- <ul class="catalog-list__colors catalog-list-colors">
                           <li class="catalog-list-colors__color " title="Желтый" style="background: #ffd552">
                           </li>
-                        </ul>
+                        </ul> -->
                         <!-- Цвета END -->
 
                       </div>
+                      @endforeach
                     </div>
                   </div>
                 </div>
               </div>
 
-
+            @if (!Auth::guest() && $wishlist <> false )          
               <div class="card__item card__item_wishlist">
 
                 <div class="card__item_head">
@@ -1088,6 +976,7 @@
                   data-controls="wishlist-controls">
                   <div class="catalog-list__holder">
                     <div class="catalog-list__row">
+                      @foreach($wishlist as $wish_product)
                       <div class="catalog-list__item wishlist-item" data-id="105294">
                         <a href="/catalog/verhnaa-odezda/suba-iz-eko-meha-korotkaa-zeltyj"
                           class="catalog-list__link wishlist-link" data-id="105294" data-type="wishlist-item">
@@ -1095,9 +984,9 @@
                             <span class="catalog-list__fav catalog-list__fav__in js-rem-fav"></span>
                             <span class="catalog-list__fav js-add-fav" style="display:none"></span>
                             <img
-                              src="/images/99x125_90_out/uploads/images/CATALOG/outerwear/104448/5f6b690b783c3-img-0629.jpg"
-                              alt="Шуба из эко-меха короткая (Желтый)"
-                              data-observer-src="/images/398x500_90_out/uploads/images/CATALOG/outerwear/104448/5f6b690b783c3-img-0629.jpg"
+                              src="{{ asset('/uploads/single/' . $wish_product->img) }}"
+                              alt="{{$wish_product->title}}"
+                              data-observer-src="{{ asset('/uploads/single/' . $wish_product->img) }}"
                               class="catalog-list__image" />
                           </div>
 
@@ -1114,14 +1003,15 @@
                             <!-- Заголовок товара -->
                             <div class="catalog-list__title">
                               <div class="catalog-list__title-inn">
-                                <span>Шуба из эко-меха короткая (Желтый)</span>
+                                <span>{{$wish_product->title}}</span>
                               </div>
                             </div>
                             <!-- Заголовок товара END -->
 
                             <!-- Цена и скидка товара -->
                             <div class="catalog-list__price">
-                              9 980 ₽ <s class="catalog-list__price-old">19 980 ₽</s>
+                            {{$wish_product->price}} ₽ 
+                            <!-- <s class="catalog-list__price-old">{{$wish_product->price}} ₽</s> -->
                             </div>
                             <!-- Цена и скидка товара END -->
 
@@ -1129,17 +1019,18 @@
                         </a>
 
                         <!-- Цвета -->
-                        <ul class="catalog-list__colors catalog-list-colors">
+                        <!-- <ul class="catalog-list__colors catalog-list-colors">
                           <li class="catalog-list-colors__color " title="Желтый" style="background: #ffd552">
                           </li>
-                        </ul>
+                        </ul> -->
                         <!-- Цвета END -->
                       </div>
+                      @endforeach
                     </div>
                   </div>
                 </div>
               </div>
-
+            @endif          
               <!-- <a href="#select_size" class="button button_powdery button_fixed card__button media-query-show_mobile js-card-button card__button_with-spaces buy_button js-popup" data-target="#might-like">Добавить в корзину</a> -->
             </div>
           </div>
@@ -1147,12 +1038,14 @@
         <div class="card-zoom card__zoom">
           <div class="card-zoom__holder">
             <div class="card-zoom__list js-card-zoom-slider">
+              @foreach($images as $image)
               <div class="card-zoom__item">
                 <img
-                  src="/images/300x0_90_out/uploads/images/CATALOG/jersey/104825/5fed8cda580b5-12storeez-dekabr-16-12-200561.jpg"
-                  data-observer-src="/images/1920x0_90_out/uploads/images/CATALOG/jersey/104825/5fed8cda580b5-12storeez-dekabr-16-12-200561.jpg"
+                  src="{{asset('uploads/gallery/' . $image)}}"
+                  data-observer-src="{{asset('uploads/gallery/' . $image)}}"
                   class="card-zoom__image" />
               </div>
+              @endforeach
             </div>
           </div>
         </div>
@@ -1178,26 +1071,26 @@
 @endsection
 
 @section('scripts')
-<script src="assets/js/jquery.js"></script>
-  <script src="assets/js/yii.js"></script>
-  <script src="assets/js/chunks/vendor.js"></script>
-  <script src="assets/js/chunks/layout-base.js"></script>
-  <script src="assets/js/fast-catalog-item/scripts.js"></script>
-  <script src="assets/js/jquery-ui.js"></script>
-  <script src="assets/js/autocomplete.js"></script>
+<script src="{{asset('assets/js/jquery.js')}}"></script>
+  <script src="{{asset('assets/js/yii.js')}}"></script>
+  <script src="{{asset('assets/js/chunks/vendor.js')}}"></script>
+  <script src="{{asset('assets/js/chunks/layout-base.js')}}"></script>
+  <script src="{{asset('assets/js/fast-catalog-item/scripts.js')}}"></script>
+  <script src="{{asset('assets/js/jquery-ui.js')}}"></script>
+  <script src="{{asset('assets/js/autocomplete.js')}}"></script>
 @endsection
 
 @section('head')
-<title>Брюки из трикотажа с манжетами в интернет-магазине — 12Storeez</title>
+<title>{{$product->title}} в интернет-магазине — Дом на дереве</title>
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <meta name="viewport"
     content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=0, minimal-ui">
-  <meta name="description" content="Брюки из трикотажа с манжетами - от 12Storeez за 5 980 ₽">
-  <link rel="stylesheet" href="assets/css/fast-catalog-item/styles.css">
-  <link rel="stylesheet" href="assets/css/style.css">
-  <link rel="stylesheet" href="assets/css/jquery-ui.css">
-  <link rel="stylesheet" href="assets/css/autocomplete.css">
+  <meta name="description" content="{{$product->title}} - от Дом на дереве за {{$product->price}} ₽">
+  <link rel="stylesheet" href="{{asset('assets/css/fast-catalog-item/styles.css')}}">
+  <link rel="stylesheet" href="{{asset('assets/css/style.css')}}">
+  <link rel="stylesheet" href="{{asset('assets/css/jquery-ui.css')}}">
+  <link rel="stylesheet" href="{{asset('assets/css/autocomplete.css')}}">
   <style>
     .reviews__review {
       margin-bottom: 1.2rem;

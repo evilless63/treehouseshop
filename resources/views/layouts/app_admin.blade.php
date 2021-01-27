@@ -129,7 +129,17 @@
                 <li><a href="{{route('blog.admin.index.index')}}"><i class="fa fa-user"></i> <span>Главная админки</span></a></li>
                 <li><a href="{{route('blog.admin.orders.index')}}"><i class="fa fa-shopping-cart"></i> <span>Заказы</span></a></li>
 
-
+                <li class="treeview">
+                    <a href="#"><i class="fa fa-navicon"></i> <span>Баннеры</span>
+                        <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+              </span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li><a href="{{route('blog.admin.banners.index')}}">Список баннеров</a></li>
+                        <li><a href="{{route('blog.admin.banners.create')}}">Добавить баннеры</a></li>
+                    </ul>
+                </li>
 
                 <li class="treeview">
                     <a href="#"><i class="fa fa-navicon"></i> <span>Категории</span>
@@ -142,6 +152,7 @@
                         <li><a href="{{route('blog.admin.categories.create')}}">Добавить категорию</a></li>
                     </ul>
                 </li>
+
                 <li class="treeview">
                     <a href="#"><i class="fa fa-cubes"></i> <span>Товары</span>
                         <span class="pull-right-container">
@@ -274,6 +285,8 @@
 @include('blog.admin.product.include.script_img')
 @include('blog.admin.product.include.script_gallery')
 @include('blog.admin.product.include.script_related_prod')
+
+@include('blog.admin.banner.include.script_img')
 
 
 </body>

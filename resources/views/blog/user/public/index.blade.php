@@ -12,7 +12,7 @@
             alt="С чистого листа: история января">
         </div>
 
-        <a href="https://12storeez.com/lookbook/item/136" class="hero__holder">
+        <a href="{{route('blog.user.catalog', 6)}}" class="hero__holder">
           <span class="hero__button">С чистого листа: история января</span>
         </a>
       </div>
@@ -37,7 +37,7 @@
                     style="background-image: url('/images/598x750_90_out/uploads/images/CATALOG/jackets/104040/5ffd5ab34cf72-novinki.jpg');">
                   </div>
                   <div class="categories-card__title">Новинки</div>
-                  <a href="https://12storeez.com/catalog/new/womencollection" class="categories-card__link"></a>
+                  <a href="{{route('blog.user.catalog', 3)}}" class="categories-card__link"></a>
                 </div>
               </div>
 
@@ -47,7 +47,7 @@
                     style="background-image: url('/images/598x750_90_out/uploads/images/CATALOG/jackets/104040/5ffd4e93a6e0d-verhnyaya-odezhda.jpg');">
                   </div>
                   <div class="categories-card__title">Верхняя одежда</div>
-                  <a href="https://12storeez.com/catalog/verhnaa-odezda/womencollection"
+                  <a href="{{route('blog.user.catalog', 5)}}"
                     class="categories-card__link"></a>
                 </div>
               </div>
@@ -58,7 +58,7 @@
                     style="background-image: url('/images/598x750_90_out/uploads/images/CATALOG/jackets/104040/5ffd4ec76ec95-trikotazh.jpg');">
                   </div>
                   <div class="categories-card__title">Трикотаж</div>
-                  <a href="/catalog/trikotaz" class="categories-card__link"></a>
+                  <a href="{{route('blog.user.catalog', 5)}}" class="categories-card__link"></a>
                 </div>
               </div>
             </div>
@@ -121,13 +121,15 @@
                   class="slider-news__arrow slider-news__arrow_next">Next</button> </div>
             </div>
             <div class="slider-news__list js-slider-news new-on-week-block home-slider__list">
-              <a href="/catalog/new/vodolazka-tonkaa-iz-merinosovoj-sersti-104156"
+              @foreach($new_products as $new_product)
+              
+              <a href="{{route('blog.user.product', $new_product->id)}}"
                 class="catalog-list__item slider-news__item new-on-week-item-link home-slider__item" data-id="105559">
                 <div class="catalog-list__preview">
                   <img
-                    src="/images/100x0_90_out/uploads/images/CATALOG/jersey/104156/5fed876f2f0c3-12storeez-21-12-20-h1379.jpg"
-                    data-observer-src="/images/414x0_90_out/uploads/images/CATALOG/jersey/104156/5fed876f2f0c3-12storeez-21-12-20-h1379.jpg"
-                    alt="Водолазка тонкая из мериносовой шерсти" class="catalog-list__image" />
+                    src="{{ asset('uploads//single/' . $new_product->img) }}"
+                    data-observer-src="{{ asset('uploads//single/' . $new_product->img) }}"
+                    alt="{{$new_product->title}}" class="catalog-list__image" />
                   <div class="page-preloader__loading news-loader"></div>
                 </div>
                 <div class="catalog-list__box slider-news__box">
@@ -144,18 +146,18 @@
                   <!-- Заголовок товара -->
                   <div class="catalog-list__title">
                     <div class="catalog-list__title-inn">
-                      <span>Водолазка тонкая из мериносовой шерсти</span>
+                      <span>{{$new_product->title}}</span>
                     </div>
                   </div>
                   <!-- Заголовок товара END -->
 
                   <!-- Цена и скидка товара -->
                   <div class="catalog-list__price">
-                    6 980 ₽ </div>
+                  {{$new_product->price}} ₽ </div>
                   <!-- Цена и скидка товара END -->
 
                   <!-- Цвета -->
-                  <ul class="catalog-list__colors catalog-list-colors">
+                  <!-- <ul class="catalog-list__colors catalog-list-colors">
 
 
                     <li class="catalog-list-colors__color " title="Чёрный" style="background:#000000">
@@ -171,10 +173,12 @@
 
                     <li class="slider-news__color-count">+3</li>
 
-                  </ul>
+                  </ul> -->
                   <!-- Цвета END -->
                 </div>
               </a>
+
+              @endforeach
             </div>
           </div>
         </div>
@@ -240,13 +244,14 @@
                   class="slider-news__arrow slider-news__arrow_next">Next</button> </div>
             </div>
             <div class="slider-news__list js-slider-news new-on-week-block home-slider__list">
-              <a href="/catalog/new/tolstovka-107204"
+            @foreach($bestseller_products as $bestseller)
+              <a href="{{route('blog.user.product', $bestseller->id)}}"
                 class="catalog-list__item slider-news__item new-on-week-item-link home-slider__item" data-id="105546">
                 <div class="catalog-list__preview">
                   <img
-                    src="/images/100x0_90_out/uploads/images/CATALOG/jersey/107204/5feb22d3aea98-12storeez-dekabr-16-12-201278.jpg"
-                    data-observer-src="/images/414x0_90_out/uploads/images/CATALOG/jersey/107204/5feb22d3aea98-12storeez-dekabr-16-12-201278.jpg"
-                    alt="Толстовка" class="catalog-list__image" />
+                    src="{{ asset('uploads/single/' . $bestseller->img) }}"
+                    data-observer-src="{{ asset('uploads//single/' . $bestseller->img) }}"
+                    alt="{{$bestseller->title}}" class="catalog-list__image" />
                   <div class="page-preloader__loading news-loader"></div>
                 </div>
                 <div class="catalog-list__box slider-news__box">
@@ -256,25 +261,25 @@
 
 
 
-                    <div class="catalog-list__tag catalog-list__new">New</div>
+                    <div class="catalog-list__tag catalog-list__new">Bestseller</div>
 
                   </div>
 
                   <!-- Заголовок товара -->
                   <div class="catalog-list__title">
                     <div class="catalog-list__title-inn">
-                      <span>Толстовка</span>
+                      <span>{{$bestseller->title}}</span>
                     </div>
                   </div>
                   <!-- Заголовок товара END -->
 
                   <!-- Цена и скидка товара -->
                   <div class="catalog-list__price">
-                    6 980 ₽ </div>
+                    {{$bestseller->price}} ₽ </div>
                   <!-- Цена и скидка товара END -->
 
                   <!-- Цвета -->
-                  <ul class="catalog-list__colors catalog-list-colors">
+                  <!-- <ul class="catalog-list__colors catalog-list-colors">
 
 
                     <li class="catalog-list-colors__color " title="Бежевый" style="background:#ddbb98">
@@ -290,10 +295,11 @@
 
                     <li class="slider-news__color-count">+1</li>
 
-                  </ul>
+                  </ul> -->
                   <!-- Цвета END -->
                 </div>
               </a>
+            @endforeach
             </div>
           </div>
         </div>
@@ -302,7 +308,7 @@
         <div class="slider-news__holder">
           <div class="slider-news__wrapper">
             <div class="slider-news__head">
-              <div class="slider-news__title">Истории</div>
+              <div class="slider-news__title">Мы в Instagram</div>
               <div class="slider-news__controls"> <button type="button"
                   class="slider-news__arrow slider-news__arrow_prev">Prev</button> <button type="button"
                   class="slider-news__arrow slider-news__arrow_next">Next</button> </div>
@@ -322,18 +328,18 @@
 @endsection
 
 @section('scripts')
-<script src="assets/js/jquery.js"></script>
-  <script src="assets/js/yii.js"></script>
-  <script src="assets/js/chunks/vendor.js"></script>
-  <script src="assets/js/chunks/layout-base.js"></script>
-  <script src="assets/js/fast-catalog-item/scripts.js"></script>
-  <script src="assets/js/jquery-ui.js"></script>
-  <script src="assets/js/autocomplete.js"></script>
-  <script src="assets/js/home/scripts.js"></script>
+<script src="{{asset('assets/js/jquery.js')}}"></script>
+  <script src="{{asset('assets/js/yii.js')}}"></script>
+  <script src="{{asset('assets/js/chunks/vendor.js')}}"></script>
+  <script src="{{asset('assets/js/chunks/layout-base.js')}}"></script>
+  <script src="{{asset('assets/js/fast-catalog-item/scripts.js')}}"></script>
+  <script src="{{asset('assets/js/jquery-ui.js')}}"></script>
+  <script src="{{asset('assets/js/autocomplete.js')}}"></script>
+  <script src="{{asset('assets/js/home/scripts.js')}}"></script>
 @endsection
 
 @section('head')
-<title>Интернет-магазин женской одежды - 12storeez</title>
+<title>Интернет-магазин детской одежды - Дом на дереве</title>
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <meta name="viewport"
@@ -341,11 +347,11 @@
   <meta name="description"
     content="Большой выбор женской одежды, платья, рубашки, костюмы, верхняя одежда, аксессуары. Доставка.">
 
-  <link rel="stylesheet" href="assets/js/home/styles.css">
-  <link rel="stylesheet" href="assets/css/fast-catalog-item/styles.css">
-  <link rel="stylesheet" href="assets/css/style.css">
-  <link rel="stylesheet" href="assets/css/jquery-ui.css">
-  <link rel="stylesheet" href="assets/css/autocomplete.css">
+  <link rel="stylesheet" href="{{asset('assets/js/home/styles.css')}}">
+  <link rel="stylesheet" href="{{asset('assets/css/fast-catalog-item/styles.css')}}">
+  <link rel="stylesheet" href="{{asset('assets/css/style.css')}}">
+  <link rel="stylesheet" href="{{asset('assets/css/jquery-ui.css')}}">
+  <link rel="stylesheet" href="{{asset('assets/css/autocomplete.css')}}">
 
   <style>
     .no-surname-show {

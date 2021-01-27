@@ -3,13 +3,13 @@
     Route::get('/', 'UserPublicController@index')
                 ->name('blog.user.index');
 
-    Route::get('/catalog', 'UserPublicController@catalog')
+    Route::get('/catalog/{id?}', 'UserPublicController@catalog')
                 ->name('blog.user.catalog');
 
     Route::get('/login', 'UserPublicController@login')
                 ->name('blog.user.login');
     
-    Route::get('/product', 'UserPublicController@product')
+    Route::get('/product/{id}', 'UserPublicController@product')
                 ->name('blog.user.product');
     
     Route::get('/cart', 'UserPublicController@cart')
@@ -30,19 +30,19 @@
     /** Admin side */
     Route::group(['middleware' => ['status','auth']], function () {
 
-        Route::get('/profile', 'UserPrivateController@profile')
+        Route::get('/user/cabinet', 'UserPrivateController@profile')
                 ->name('blog.user.profile');
         
-        Route::get('/edit-profile', 'UserPrivateController@editProfile')
+        Route::get('/user/edit', 'UserPrivateController@editProfile')
                 ->name('blog.user.edit_profile');
 
-        Route::get('/orders', 'UserPrivateController@orders')
+        Route::get('/user/orders', 'UserPrivateController@orders')
                 ->name('blog.user.orders');
 
-        Route::get('/subscribe', 'UserPrivateController@subscribe')
+        Route::get('/user/subscribe', 'UserPrivateController@subscribe')
                 ->name('blog.user.subscribe');
 
-        Route::get('/wishlist', 'UserPrivateController@wishlist')
+        Route::get('/user/wishlist', 'UserPrivateController@wishlist')
                 ->name('blog.user.wishlist');
 
         $groupeData = [
@@ -123,8 +123,17 @@
                 ->names('blog.admin.products');
 
 
+            Route::resource('banners','BannerController')
+                ->names('blog.admin.banners');
+            Route::match(['get', 'post'], '/banners/ajax-image-upload', 'BannerController@ajaxImage');
+            Route::delete('/banners/ajax-remove-image/{filename}', 'BannerController@deleteImage');
 
-
+            Route::get('/banners/return-status/{id}','BannerController@returnStatus')
+            ->name('blog.admin.banners.returnstatus');
+            Route::get('/banners/delete-status/{id}','BannerController@deleteStatus')
+                ->name('blog.admin.banners.deletestatus');
+            Route::get('/banners/delete-banner/{id}', 'BannerController@deleteBanner')
+            ->name('blog.admin.banners.deletebanner');
 
 
             Route::resource('posts', 'PostController')

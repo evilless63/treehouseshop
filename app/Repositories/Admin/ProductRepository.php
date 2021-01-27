@@ -61,6 +61,15 @@
             return $related_products;
         }
 
+        /** Get products by ids*/
+        public function getProductsByIds($ids_array)
+        {
+            $products_by_ids = $this->startConditions()
+                ->whereIn('id', $ids_array)
+                ->get();
+            return $products_by_ids;
+        }
+
         /** Get Gallery for One Product*/
         public function getGallery($id)
         {
@@ -81,6 +90,17 @@
                 ->orderBy(\DB::raw('LENGTH(products.title)', "products.title"))
                 ->limit($perpage)
                 ->paginate($perpage);
+
+            return $get_all;
+        }
+
+        /** products by category */
+        public function getProductsByCategoryId($id)
+        {
+            $get_all = $this->startConditions()::withTrashed()
+                ->join('categories', 'products.category_id', '=', 'categories.id')
+                ->select('products.*', 'categories.title AS cat')->where('products.status', '1')
+                ->orderBy(\DB::raw('LENGTH(products.title)', "products.title"))->where('categories.id', $id)->get();
 
             return $get_all;
         }

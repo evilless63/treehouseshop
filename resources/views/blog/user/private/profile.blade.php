@@ -28,14 +28,14 @@
                     <div class="profile-info profile-head__info">
                       <div class="profile-info__background"></div>
                       <div class="profile-info__list">
-                        <div class="profile-info__item">glukhov_alexander@outlook.com</div>
+                        <div class="profile-info__item">a@a.com</div>
                         <div class="profile-info__item"></div>
                         <div class="profile-info__item"></div>
                       </div>
                       <div class="profile-info__detail">
                         <div class="profile-info__detail-column profile-info__detail-column_3">
                           <div class="profile-info__detail-title">контактная информация</div>
-                          <div class="profile-info__detail-item">glukhov_alexander@outlook.com</div>
+                          <div class="profile-info__detail-item">a@a.com</div>
                           <div class="profile-info__detail-item">не задан</div>
                         </div>
                           <div class="profile-info__detail-column profile-info__detail-column_3">
@@ -88,9 +88,9 @@
                     <div class="accordion__icon profile-orders__icon"></div>
                   </div>
                 </div>
-                <div class="bonus-faq__box accordion__box" style="display: none;"><p>За покупку, совершенную в Интернет-магазине 12storeez, а также во всех розничных магазинах 12storeez, начисляются Бонусные баллы, из расчета 3 (Три) балла за каждые 100 (Сто) рублей от стоимости выкупленного товара, без учета стоимости доставки, после применения всех действующих скидок.</p>
+                <div class="bonus-faq__box accordion__box" style="display: none;"><p>За покупку, совершенную в Интернет-магазине, начисляются Бонусные баллы, из расчета 3 (Три) балла за каждые 100 (Сто) рублей от стоимости выкупленного товара, без учета стоимости доставки, после применения всех действующих скидок.</p>
       
-      <p>Бонусные баллы списываются из расчета 1 балл за 1 рубль. Пользователь вправе оплатить Бонусными баллами не более 50% (пятьдесят процентов) стоимости товара. Бонусная программа не распространяется на услуги по доставке товаров Пользователю. Оставшиеся 50% (пятьдесят процентов) стоимости онлайн заказа или покупки в розничных магазинах Пользователь оплачивает: в Интернет-магазине 12storeez любым доступным для региона способом оплаты (наличными или картой при получении курьеру, онлайн на сайте), в розничных магазинах – наличными или картой на кассе.</p>
+      <p>Бонусные баллы списываются из расчета 1 балл за 1 рубль. Пользователь вправе оплатить Бонусными баллами не более 50% (пятьдесят процентов) стоимости товара. Бонусная программа не распространяется на услуги по доставке товаров Пользователю. Оставшиеся 50% (пятьдесят процентов) стоимости онлайн заказа или покупки в розничных магазинах Пользователь оплачивает: в Интернет-магазине любым доступным для региона способом оплаты (наличными или картой при получении курьеру, онлайн на сайте), в розничных магазинах – наличными или картой на кассе.</p>
       
       <p>Бонусные баллы, накопленные Пользователем и не потраченные им в созданном онлайн заказе или покупке в розничных магазинах, остаются на его Бонусном счете.</p>
       </div>
@@ -142,36 +142,35 @@
 @endsection
 
 @section('scripts')
-<script src="assets/js/jquery.js"></script>
-  <script src="assets/js/jquery.infinitescroll.js"></script>
-  <script src="assets/js/yii.js"></script>
-  <script src="assets/js/yii.validation.js"></script>
-  <script src="assets/js/yii.activeform.js"></script> 
-  <script src="assets/js/jquery.pjax.js"></script>
-  <script src="assets/js/chunks/vendor.js"></script>
-  <script src="assets/js/chunks/layout-base.js"></script>
-  <script src="assets/js/intellinput.js"></script>
-  <script src="assets/js/whishlist/scripts.js"></script>
-  <script src="assets/js/jquery-ui.js"></script>
-  <script src="assets/js/autocomplete.js"></script>
-  <script src="assets/js/base/scripts.js"></script>
-  <script src="assets/js/utils.js"></script>
+<script src="{{asset('assets/js/jquery.js')}}"></script>
+  <script src="{{asset('assets/js/jquery.infinitescroll.js')}}"></script>
+  <script src="{{asset('assets/js/yii.js')}}"></script>
+  <script src="{{asset('assets/js/yii.validation.js')}}"></script>
+  <script src="{{asset('assets/js/yii.activeform.js')}}"></script> 
+  <script src="{{asset('assets/js/jquery.pjax.js')}}"></script>
+  <script src="{{asset('assets/js/chunks/vendor.js')}}"></script>
+  <script src="{{asset('assets/js/chunks/layout-base.js')}}"></script>
+  <script src="{{asset('assets/js/intellinput.js')}}"></script>
+  <script src="{{asset('assets/js/whishlist/scripts.js')}}"></script>
+  <script src="{{asset('assets/js/jquery-ui.js')}}"></script>
+  <script src="{{asset('assets/js/autocomplete.js')}}"></script>
+  <script src="{{asset('assets/js/base/scripts.js')}}"></script>
+  <script src="{{asset('assets/js/utils.js')}}"></script>
 @endsection
 
 @section('head')
-<title>Интернет-магазин женской одежды - 12storeez</title>
+<title>Интернет-магазин детской одежды - Дом на дереве</title>
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <meta name="viewport"
     content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=0, minimal-ui">
   <meta name="description"
     content="Большой выбор женской одежды, платья, рубашки, костюмы, верхняя одежда, аксессуары. Доставка.">
-  <link rel="canonical" href="https://12storeez.com/user/wishlist">
-  <link rel="stylesheet" href="assets/js/base/styles.css">
-  <link rel="stylesheet" href="assets/css/style.css">
-  <link rel="stylesheet" href="assets/css/jquery-ui.css">
-  <link rel="stylesheet" href="assets/css/intellinput.css">
-  <link rel="stylesheet" href="assets/css/autocomplete.css">
+  <link rel="stylesheet" href="{{asset('assets/js/base/styles.css')}}">
+  <link rel="stylesheet" href="{{asset('assets/css/style.css')}}">
+  <link rel="stylesheet" href="{{asset('assets/css/jquery-ui.css')}}">
+  <link rel="stylesheet" href="{{asset('assets/css/intellinput.css')}}">
+  <link rel="stylesheet" href="{{asset('assets/css/autocomplete.css')}}">
   <style>
     /* SITEDEV-2039 */
 

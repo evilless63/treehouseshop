@@ -466,15 +466,15 @@
 @endsection
 
 @section('scripts')
-<script src="assets/js/jquery.js"></script>
-  <script src="assets/js/applepay.js"></script>
-  <script src="assets/js/cart.js"></script>
-  <script src="assets/js/yii.js"></script>
-  <script src="assets/js/chunks/vendor.js"></script>
-  <script src="assets/js/chunks/layout-base.js"></script>
-  <script src="assets/js/cart/scripts.js"></script>
-  <script src="assets/js/jquery-ui.js"></script>
-  <script src="assets/js/autocomplete.js"></script>
+<script src="{{asset('assets/js/jquery.js')}}"></script>
+  <script src="{{asset('assets/js/applepay.js')}}"></script>
+  <script src="{{asset('assets/js/cart.js')}}"></script>
+  <script src="{{asset('assets/js/yii.js')}}"></script>
+  <script src="{{asset('assets/js/chunks/vendor.js')}}"></script>
+  <script src="{{asset('assets/js/chunks/layout-base.js')}}"></script>
+  <script src="{{asset('assets/js/cart/scripts.js')}}"></script>
+  <script src="{{asset('assets/js/jquery-ui.js')}}"></script>
+  <script src="{{asset('assets/js/autocomplete.js')}}"></script>
 @endsection
 
 @section('head')
@@ -484,11 +484,11 @@
   <meta name="viewport"
     content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=0, minimal-ui">
 
-  <link rel="stylesheet" href="assets/css/applepay.css">
-  <link rel="stylesheet" href="assets/js/cart/styles.css">
-  <link rel="stylesheet" href="assets/css/style.css">
-  <link rel="stylesheet" href="assets/css/jquery-ui.css">
-  <link rel="stylesheet" href="assets/css/autocomplete.css">
+  <link rel="stylesheet" href="{{asset('assets/css/applepay.css')}}">
+  <link rel="stylesheet" href="{{asset('assets/js/cart/styles.css')}}">
+  <link rel="stylesheet" href="{{asset('assets/css/style.css')}}">
+  <link rel="stylesheet" href="{{asset('assets/css/jquery-ui.css')}}">
+  <link rel="stylesheet" href="{{asset('assets/css/autocomplete.css')}}">
 
   <style>
     .no-surname-show {

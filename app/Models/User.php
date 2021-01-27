@@ -8,8 +8,6 @@
     use Illuminate\Notifications\Notifiable;
     use Illuminate\Foundation\Auth\User as Authenticatable;
 
-    use LamaLama\Wishlist\HasWishlists;
-
     /**
      * Class User
      * @package App\Models
@@ -17,7 +15,6 @@
     class User extends Authenticatable
     {
         use Notifiable;
-        use HasWishlists;
 
 
         /**

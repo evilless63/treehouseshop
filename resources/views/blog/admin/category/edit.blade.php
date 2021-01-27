@@ -51,6 +51,12 @@
                                 <label for="description">Описание</label>
                                 <input type="text" name="description" class="form-control" id="description" value="{{old('description', $item->description)}}">
                             </div>
+
+                            <div class="form-group">
+                                <label>
+                                    <input type="checkbox" name="in_header" {{$item->in_header ? 'checked' : null}}> Использовать в шапке сайта
+                                </label>
+                            </div>
                         </div>
                         <div class="box-footer">
                             <button type="submit" class="btn btn-success">Сохранить</button>

@@ -84,7 +84,10 @@ class CategoryController extends AdminBaseController
 
         $data = $request->input();
         $item = new Category();
+        $data['in_header'] = $request->in_header ? '1' : '0';
         $item->fill($data)->save();
+
+        
 
         if ($item) {
             return redirect()
@@ -142,6 +145,7 @@ class CategoryController extends AdminBaseController
         }
 
         $data = $request->all();
+        $data['in_header'] = $request->in_header ? '1' : '0';
         $result = $item->update($data);
         if ($result){
             return redirect()

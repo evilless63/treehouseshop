@@ -7,7 +7,7 @@
 
 
             <div class="page__sidebar page__sidebar_left media-query-show_wide">
-              <h1 class="page__title">Wishlist</h1>
+              <h1 class="page__title">Мой кабинет</h1>
               <div class="categories">
                 <div class="categories__item"><a href="/user/cabinet" class="categories__link">Профиль</a></div>
                 <div class="categories__item"><a href="/user/orders" class="categories__link">Мои заказы</a></div>
@@ -27,7 +27,7 @@
                               <h2 class="profile-edit__title">Личные данные</h2>
       
                               <div class="form__item field-user-email required">
-      <label class="form__label" for="user-email">E-mail</label><div class="form__field"><input type="text" id="user-email" class="form__input" name="User[email]" value="glukhov_alexander@outlook.com" disabled="" maxlength="255" aria-required="true"><p class="form__error-message"></p></div>
+      <label class="form__label" for="user-email">E-mail</label><div class="form__field"><input type="text" id="user-email" class="form__input" name="User[email]" value="a@a.com" disabled="" maxlength="255" aria-required="true"><p class="form__error-message"></p></div>
       </div>
                               <div class="form__item">
                                   <label for="pass" class="form__label">Пароль</label>
@@ -85,35 +85,35 @@
 @endsection
 
 @section('scripts')
-<script src="assets/js/jquery.js"></script>
-  <script src="assets/js/jquery.infinitescroll.js"></script>
-  <script src="assets/js/yii.js"></script>
-  <script src="assets/js/yii.validation.js"></script>
-  <script src="assets/js/yii.activeform.js"></script> 
-  <script src="assets/js/jquery.pjax.js"></script>
-  <script src="assets/js/chunks/vendor.js"></script>
-  <script src="assets/js/chunks/layout-base.js"></script>
-  <script src="assets/js/intellinput.js"></script>
-  <script src="assets/js/whishlist/scripts.js"></script>
-  <script src="assets/js/jquery-ui.js"></script>
-  <script src="assets/js/autocomplete.js"></script>
-  <script src="assets/js/base/scripts.js"></script>
-  <script src="assets/js/utils.js"></script>
+<script src="{{asset('assets/js/jquery.js')}}"></script>
+  <script src="{{asset('assets/js/jquery.infinitescroll.js')}}"></script>
+  <script src="{{asset('assets/js/yii.js')}}"></script>
+  <script src="{{asset('assets/js/yii.validation.js')}}"></script>
+  <script src="{{asset('assets/js/yii.activeform.js')}}"></script> 
+  <script src="{{asset('assets/js/jquery.pjax.js')}}"></script>
+  <script src="{{asset('assets/js/chunks/vendor.js')}}"></script>
+  <script src="{{asset('assets/js/chunks/layout-base.js')}}"></script>
+  <script src="{{asset('assets/js/intellinput.js')}}"></script>
+  <script src="{{asset('assets/js/whishlist/scripts.js')}}"></script>
+  <script src="{{asset('assets/js/jquery-ui.js')}}"></script>
+  <script src="{{asset('assets/js/autocomplete.js')}}"></script>
+  <script src="{{asset('assets/js/base/scripts.js')}}"></script>
+  <script src="{{asset('assets/js/utils.js')}}"></script>
 @endsection
 
 @section('head')
-<title>Интернет-магазин женской одежды - 12storeez</title>
+<title>Интернет-магазин детской одежды - Дом на дереве</title>
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <meta name="viewport"
     content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=0, minimal-ui">
   <meta name="description"
     content="Большой выбор женской одежды, платья, рубашки, костюмы, верхняя одежда, аксессуары. Доставка.">
-  <link rel="stylesheet" href="assets/js/base/styles.css">
-  <link rel="stylesheet" href="assets/css/style.css">
-  <link rel="stylesheet" href="assets/css/jquery-ui.css">
-  <link rel="stylesheet" href="assets/css/intellinput.css">
-  <link rel="stylesheet" href="assets/css/autocomplete.css">
+  <link rel="stylesheet" href="{{asset('assets/js/base/styles.css')}}">
+  <link rel="stylesheet" href="{{asset('assets/css/style.css')}}">
+  <link rel="stylesheet" href="{{asset('assets/css/jquery-ui.css')}}">
+  <link rel="stylesheet" href="{{asset('assets/css/intellinput.css')}}">
+  <link rel="stylesheet" href="{{asset('assets/css/autocomplete.css')}}">
   <style>
     /* SITEDEV-2039 */
 

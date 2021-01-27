@@ -5,15 +5,13 @@
         <div class="catalog__holder">
           <div class="page__row">
             <div class="page__sidebar page__sidebar_left js-fixed-block media-query-show_wide">
-              <div class="page__title">Мужчинам</div>
+              <div class="page__title">Каталог</div>
               <div class="categories catalog__categories">
-                <div class="categories__item ">
-                  <a href="/catalog/new/mencollection" class="categories__link ">Новинки</a>
-                </div>
-                <div class="categories__item ">
+              @include('blog.user.includes.sidebar_categories', ['items'=>$categories_menu->roots()])
+                <!-- <div class="categories__item ">
                   <a href="/catalog/skidki/mencollection" class="categories__link categories__link--red">Sale до
                     -50%</a>
-                </div>
+                </div> -->
               </div>
             </div>
             <div class="page__middle page__middle--catalog">
@@ -23,13 +21,15 @@
 
                   <div class="filter js-fixed-filter-block">
                     <div class="filter__top">
-                      <div class="filter__head">
-                        Выберите размер <span class="count" style="display: none;"></span>
-                        <i class="arrow"></i>
+                      <div class="filter__head" style="font-size: 20px;">
+                        <!-- Выберите размер  -->
+                        {{$category_name}}
+                        <!-- <span class="count" style="display: none;"></span>
+                        <i class="arrow"></i> -->
                       </div>
                       <div class="filter__clear" data-ga-action="Clean filter click">Сбросить</div>
                     </div>
-                    <div class="filter__list">
+                    <!-- <div class="filter__list">
                       <div class="filter__item">
 
                         <div class="filter__controls">
@@ -68,7 +68,7 @@
                           </div>
                         </div>
                       </div>
-                    </div>
+                    </div> -->
                   </div>
 
 
@@ -78,32 +78,21 @@
                     <div id="catalog-models" data-pjax-container="" data-pjax-push-state data-pjax-timeout="10000">
                       <div id="catalog-list" class="catalog-list__holder list-view">
                         <div class="catalog-list__row">
-                          <div class="catalog-list__item" data-sizes='[]' data-key="104410">
-                            <input type="hidden" data-name="name" id="model_info_name_104410"
-                              value="Толстовка мужская (Серый меланж)">
-                            <input type="hidden" data-name="price" id="model_info_price_104410" value="5980.00">
-                            <input type="hidden" data-name="category" id="model_info_category_104410"
-                              value="Мужская коллекция/Футболки и толстовки">
-                            <input type="hidden" data-name="list" id="model_info_list_104410"
-                              value="Мужская коллекция/Футболки и толстовки">
-                            <input type="hidden" data-name="color" id="model_info_color_104410" value="Серый меланж">
-                            <input type="hidden" data-name="article" id="model_info_article_104410" value="102669">
-                            <input type="hidden" data-name="material" id="model_info_material_104410"
-                              value="75% Полиэстер, 25% Хлопок">
-
-                            <a href="/catalog/futbolki-i-tolstovki/tolstovka-muzskaa-seryj-melanz"
+                          @foreach($products_by_category as $product_by_category)
+                          <div class="catalog-list__item" data-sizes='[]'>
+                            <a href="{{route('blog.user.product', $product_by_category->id)}}"
                               class="catalog-list__link" data-pjax="0">
                               <div class="catalog-list__preview">
                                 <span class="catalog-list__fav catalog-list__fav__in js-rem-fav"
                                   style="display:none"></span>
                                 <span class="catalog-list__fav js-add-fav"></span>
                                 <img
-                                  src="/images/500x627_90_out/uploads/images/product/20200303/tolstovka-muzskaa-seryj-melanz/5ee721f52c308-12storeez-mart-2020-35931.jpg"
-                                  alt="Толстовка мужская" class="catalog-list__image" />
+                                  src="{{asset('uploads/single/' . $product_by_category->img)}}"
+                                  alt="{{$product_by_category->title}}" class="catalog-list__image" />
                               </div>
                             </a>
                             <div class="catalog-list__box">
-                              <a id="104410" href="/catalog/futbolki-i-tolstovki/tolstovka-muzskaa-seryj-melanz"
+                              <a id="104410" href="{{route('blog.user.product', $product_by_category->id)}}"
                                 class="catalog-list__link" data-pjax="0">
 
                                 <div class="catalog-list__box">
@@ -121,20 +110,20 @@
                                 <!-- Заголовок товара -->
                                 <div class="catalog-list__title">
                                   <div class="catalog-list__title-inn">
-                                    <span>Толстовка мужская</span>
+                                    <span>{{$product_by_category->title}}</span>
                                   </div>
                                 </div>
                                 <!-- Заголовок товара END -->
 
                                 <!-- Цена и скидка товара -->
                                 <div class="catalog-list__price">
-                                  <span class="">5 980 ₽</span>
+                                  <span class="">{{$product_by_category->price}} ₽</span>
                                 </div>
                                 <!-- Цена и скидка товара END -->
                               </a>
 
                               <!-- Цвета -->
-                              <ul class="catalog-list__colors catalog-list-colors">
+                              <!-- <ul class="catalog-list__colors catalog-list-colors">
                                 <li class="catalog-list-colors__color-wrap">
                                   <a href="/catalog/futbolki-i-tolstovki/tolstovka-muzskaa-bezevyj-melanz"
                                     class="catalog-list-colors__color " title="Бежевый меланж"
@@ -147,17 +136,18 @@
                                     style="background: #918888">
                                   </a>
                                 </li>
-                              </ul>
+                              </ul> -->
                               <!-- Цвета END -->
 
                               <!-- Размеры в наличии  -->
-                              <ul class="catalog-list-sizes" data-one-size="">
+                              <!-- <ul class="catalog-list-sizes" data-one-size="">
                                 <li class="catalog-list-sizes__item">XL</li>
                                 <li class="catalog-list-sizes__item">XXL</li>
-                              </ul>
+                              </ul> -->
                               <!-- Размеры в наличии END  -->
                             </div>
                           </div>
+                          @endforeach
                           <div class="pagination-wrap"></div>
                         </div>
                       </div>
@@ -179,125 +169,132 @@
                     data-controls="last-view-controls" data-location="catalog">
                     <div class="catalog-list__holder">
                       <div class="catalog-list__row">
-                        <div class="catalog-list__item last-view-item" data-id="105561">
-                          <a href="/catalog/trikotaz/bruki-iz-trikotaza-s-manzetami-104825"
-                            class="catalog-list__link last-view-link" data-type="last_view" data-id="105561"
-                            data-category="product_card" data-action="recommendations" data-label="click_last_view">
-                            <div class="catalog-list__preview catalog-list__preview--round">
-                              <span class="catalog-list__fav catalog-list__fav__in js-rem-fav"
-                                style="display:none"></span>
-                              <span class="catalog-list__fav js-add-fav"></span>
-                              <img
-                                src="/images/99x125_90_out/uploads/images/CATALOG/jersey/104825/5fed8cda580b5-12storeez-dekabr-16-12-200561.jpg"
-                                alt="Брюки из трикотажа с манжетами"
-                                data-observer-src="/images/398x500_90_out/uploads/images/CATALOG/jersey/104825/5fed8cda580b5-12storeez-dekabr-16-12-200561.jpg"
-                                class="catalog-list__image" />
+                      @foreach($recently_viewed_products as $recently_viewed_product)
+                      <div class="catalog-list__item last-view-item" data-id="105294">
+                        <a href="{{route('blog.user.product', $recently_viewed_product->id)}}"
+                          class="catalog-list__link last-view-link" data-type="last_view" data-id="105294"
+                          data-category="product_card" data-action="recommendations" data-label="click_last_view">
+                          <div class="catalog-list__preview catalog-list__preview--round">
+                            <span class="catalog-list__fav catalog-list__fav__in js-rem-fav"></span>
+                            <span class="catalog-list__fav js-add-fav" style="display:none"></span>
+                            <img
+                              src="{{asset('uploads/single/' . $recently_viewed_product->img)}}"
+                              alt="{{$recently_viewed_product->title}}"
+                              data-observer-src="{{asset('uploads/single/' . $recently_viewed_product->img)}}"
+                              class="catalog-list__image" />
+                          </div>
+
+                          <div class="catalog-list__box">
+
+                            <div class="catalog-list__info catalog-list__info_head">
+
+
+
+
+
                             </div>
 
-                            <div class="catalog-list__box">
-
-                              <div class="catalog-list__info catalog-list__info_head">
-
-
-
-
-                                <div class="catalog-list__tag catalog-list__new">New</div>
-
+                            <!-- Заголовок товара -->
+                            <div class="catalog-list__title">
+                              <div class="catalog-list__title-inn">
+                                <span>{{$recently_viewed_product->title}}</span>
                               </div>
-
-                              <!-- Заголовок товара -->
-                              <div class="catalog-list__title">
-                                <div class="catalog-list__title-inn">
-                                  <span>Брюки из трикотажа с манжетами</span>
-                                </div>
-                              </div>
-                              <!-- Заголовок товара END -->
-
-                              <!-- Цена и скидка товара -->
-                              <div class="catalog-list__price">
-                                5 980 ₽ </div>
-                              <!-- Цена и скидка товара END -->
                             </div>
-                          </a>
+                            <!-- Заголовок товара END -->
 
-                          <!-- Цвета -->
-                          <ul class="catalog-list__colors catalog-list-colors">
-                            <li class="catalog-list-colors__color " title="Молочный" style="background: #fff3e7">
-                            </li>
-                          </ul>
-                          <!-- Цвета END -->
+                            <!-- Цена и скидка товара -->
+                            <div class="catalog-list__price">
+                              {{$recently_viewed_product->price}} ₽ 
+                              <!-- <s class="catalog-list__price-old">19 980 ₽</s> -->
+                            </div>
+                            <!-- Цена и скидка товара END -->
+                          </div>
+                        </a>
 
-                        </div>
+                        <!-- Цвета -->
+                        <!-- <ul class="catalog-list__colors catalog-list-colors">
+                          <li class="catalog-list-colors__color " title="Желтый" style="background: #ffd552">
+                          </li>
+                        </ul> -->
+                        <!-- Цвета END -->
+
+                      </div>
+                      @endforeach
                       </div>
                     </div>
                   </div>
                 </div>
 
 
-                <div class="card__item card__item_wishlist">
+                @if (!Auth::guest() && $wishlist <> false )          
+              <div class="card__item card__item_wishlist">
 
-                  <div class="card__item_head">
-                    <h2 class="card__title">Ваш вишлист</h2>
-                    <div class="card__item_controls card-item-controls wishlist-controls">
-                      <div class="card-item-controls__prev"></div>
-                      <div class="card-item-controls__next"></div>
-                    </div>
+                <div class="card__item_head">
+                  <h2 class="card__title">Ваш вишлист</h2>
+                  <div class="card__item_controls card-item-controls wishlist-controls">
+                    <div class="card-item-controls__prev"></div>
+                    <div class="card-item-controls__next"></div>
                   </div>
-                  <div class="catalog-list card__might-like js-catalog-list-slider wishlist-block"
-                    data-controls="wishlist-controls" data-location="catalog">
-                    <div class="catalog-list__holder">
-                      <div class="catalog-list__row">
-                        <div class="catalog-list__item wishlist-item" data-id="105294">
-                          <a href="/catalog/verhnaa-odezda/suba-iz-eko-meha-korotkaa-zeltyj"
-                            class="catalog-list__link wishlist-link" data-id="105294" data-type="wishlist-item">
-                            <div class="catalog-list__preview catalog-list__preview--round">
-                              <span class="catalog-list__fav catalog-list__fav__in js-rem-fav"></span>
-                              <span class="catalog-list__fav js-add-fav" style="display:none"></span>
-                              <img
-                                src="/images/99x125_90_out/uploads/images/CATALOG/outerwear/104448/5f6b690b783c3-img-0629.jpg"
-                                alt="Шуба из эко-меха короткая (Желтый)"
-                                data-observer-src="/images/398x500_90_out/uploads/images/CATALOG/outerwear/104448/5f6b690b783c3-img-0629.jpg"
-                                class="catalog-list__image" />
-                            </div>
+                </div>
+                <div class="catalog-list card__might-like js-catalog-list-slider wishlist-block"
+                  data-controls="wishlist-controls">
+                  <div class="catalog-list__holder">
+                    <div class="catalog-list__row">
+                      @foreach($wishlist as $wish_product)
+                      <div class="catalog-list__item wishlist-item" data-id="105294">
+                        <a href="/catalog/verhnaa-odezda/suba-iz-eko-meha-korotkaa-zeltyj"
+                          class="catalog-list__link wishlist-link" data-id="105294" data-type="wishlist-item">
+                          <div class="catalog-list__preview catalog-list__preview--round">
+                            <span class="catalog-list__fav catalog-list__fav__in js-rem-fav"></span>
+                            <span class="catalog-list__fav js-add-fav" style="display:none"></span>
+                            <img
+                              src="{{ asset('/uploads/single/' . $wish_product->img) }}"
+                              alt="{{$wish_product->title}}"
+                              data-observer-src="{{ asset('/uploads/single/' . $wish_product->img) }}"
+                              class="catalog-list__image" />
+                          </div>
 
-                            <div class="catalog-list__box">
+                          <div class="catalog-list__box">
 
-                              <div class="catalog-list__info catalog-list__info_head">
-
-
+                            <div class="catalog-list__info catalog-list__info_head">
 
 
 
-                              </div>
 
-                              <!-- Заголовок товара -->
-                              <div class="catalog-list__title">
-                                <div class="catalog-list__title-inn">
-                                  <span>Шуба из эко-меха короткая (Желтый)</span>
-                                </div>
-                              </div>
-                              <!-- Заголовок товара END -->
-
-                              <!-- Цена и скидка товара -->
-                              <div class="catalog-list__price">
-                                9 980 ₽ <s class="catalog-list__price-old">19 980 ₽</s>
-                              </div>
-                              <!-- Цена и скидка товара END -->
 
                             </div>
-                          </a>
 
-                          <!-- Цвета -->
-                          <ul class="catalog-list__colors catalog-list-colors">
-                            <li class="catalog-list-colors__color " title="Желтый" style="background: #ffd552">
-                            </li>
-                          </ul>
-                          <!-- Цвета END -->
-                        </div>
+                            <!-- Заголовок товара -->
+                            <div class="catalog-list__title">
+                              <div class="catalog-list__title-inn">
+                                <span>{{$wish_product->title}}</span>
+                              </div>
+                            </div>
+                            <!-- Заголовок товара END -->
+
+                            <!-- Цена и скидка товара -->
+                            <div class="catalog-list__price">
+                            {{$wish_product->price}} ₽ 
+                            <!-- <s class="catalog-list__price-old">{{$wish_product->price}} ₽</s> -->
+                            </div>
+                            <!-- Цена и скидка товара END -->
+
+                          </div>
+                        </a>
+
+                        <!-- Цвета -->
+                        <!-- <ul class="catalog-list__colors catalog-list-colors">
+                          <li class="catalog-list-colors__color " title="Желтый" style="background: #ffd552">
+                          </li>
+                        </ul> -->
+                        <!-- Цвета END -->
                       </div>
+                      @endforeach
                     </div>
                   </div>
                 </div>
+              </div>
+            @endif 
 
                 <!-- SITEDEV-2634 end -->
 
@@ -321,30 +318,30 @@
 @endsection
 
 @section('scripts')
-<script src="assets/js/jquery.js"></script>
-  <script src="assets/js/jquery.infinitescroll.js"></script>
-  <script src="assets/js/yii.js"></script>
-  <script src="assets/js/jquery.pjax.js"></script>
-  <script src="assets/js/chunks/vendor.js"></script>
-  <script src="assets/js/chunks/layout-base.js"></script>
-  <script src="assets/js/fast-catalog-item/scripts.js"></script>
-  <script src="assets/js/jquery-ui.js"></script>
-  <script src="assets/js/autocomplete.js"></script>
-  <script src="assets/js/home/scripts.js"></script>
+<script src="{{asset('assets/js/jquery.js')}}"></script>
+  <script src="{{asset('assets/js/jquery.infinitescroll.js')}}"></script>
+  <script src="{{asset('assets/js/yii.js')}}"></script>
+  <script src="{{asset('assets/js/jquery.pjax.js')}}"></script>
+  <script src="{{asset('assets/js/chunks/vendor.js')}}"></script>
+  <script src="{{asset('assets/js/chunks/layout-base.js')}}"></script>
+  <script src="{{asset('assets/js/fast-catalog-item/scripts.js')}}"></script>
+  <script src="{{asset('assets/js/jquery-ui.js')}}"></script>
+  <script src="{{asset('assets/js/autocomplete.js')}}"></script>
+  <script src="{{asset('assets/js/home/scripts.js')}}"></script>
 @endsection
 
 @section('head')
-<title>Футболки и толстовки в интернет-магазине — 12Storeez</title>
+<title>{{$category_name}} в интернет-магазине — Дом на дереве</title>
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <meta name="viewport"
     content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=0, minimal-ui">
   <meta name="description"
     content="Большой выбор футболок и толстовок от 12 STOREEZ. Универсальные модели на каждый день">
-  <link rel="stylesheet" href="assets/css/fast-catalog-item/styles.css">
-  <link rel="stylesheet" href="assets/css/style.css">
-  <link rel="stylesheet" href="assets/css/jquery-ui.css">
-  <link rel="stylesheet" href="assets/css/autocomplete.css">
+  <link rel="stylesheet" href="{{asset('assets/css/fast-catalog-item/styles.css')}}">
+  <link rel="stylesheet" href="{{asset('assets/css/style.css')}}">
+  <link rel="stylesheet" href="{{asset('assets/css/jquery-ui.css')}}">
+  <link rel="stylesheet" href="{{asset('assets/css/autocomplete.css')}}">
 
 
   <style>

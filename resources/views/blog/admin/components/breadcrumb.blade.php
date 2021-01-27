@@ -15,6 +15,9 @@
     @if (isset($product))
         <li><a href="{{route('blog.admin.products.index')}}"><i></i>{{$product}}</a></li>
     @endif
+    @if (isset($banner))
+        <li><a href="{{route('blog.admin.banners.index')}}"><i></i>{{$banner}}</a></li>
+    @endif
     @if (isset($group_filter))
         <li><a href="{{url('/admin/filter/group-filter')}}"><i></i>{{$group_filter}}</a></li>
     @endif

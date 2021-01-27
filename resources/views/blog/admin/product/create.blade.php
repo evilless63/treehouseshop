@@ -91,13 +91,19 @@
 
                             <div class="form-group">
                                 <label>
-                                    <input type="checkbox" name="status" checked> Статус
+                                    <input type="checkbox" name="status" checked> Показывать на сайте
                                 </label>
                             </div>
 
                             <div class="form-group">
                                 <label>
-                                    <input type="checkbox" name="hit"> Хит
+                                    <input type="checkbox" name="hit"> Бестселлер
+                                </label>
+                            </div>
+
+                            <div class="form-group">
+                                <label>
+                                    <input type="checkbox" name="is_new" checked> Новинка
                                 </label>
                             </div>
 

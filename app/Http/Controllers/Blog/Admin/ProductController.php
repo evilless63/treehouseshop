@@ -70,6 +70,7 @@
             $id = $product->id;
             $product->status = $request->status ? '1' : '0';
             $product->hit = $request->hit ? '1' : '0';
+            $product->is_new = $request->is_new ? '1' : '0';
             $product->category_id = $request->parent_id ?? '0';
             $this->productRepository->getImg($product);
             $save = $product->save();
@@ -132,6 +133,7 @@
             $result = $product->update($data);
             $product->status = $request->status ? '1' : '0';
             $product->hit = $request->hit ? '1' : '0';
+            $product->is_new = $request->is_new ? '1' : '0';
             $product->category_id = $request->parent_id ?? $product->category_id;
             $this->productRepository->getImg($product);
             $save = $product->save();

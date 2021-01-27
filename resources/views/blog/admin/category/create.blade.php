@@ -46,6 +46,12 @@
                                 <label for="description">Описание</label>
                                 <input type="text" name="description" class="form-control" id="description" placeholder="Описание" value="{{old('description', $item->description)}}" required>
                             </div>
+
+                            <div class="form-group">
+                                <label>
+                                    <input type="checkbox" name="in_header" checked> Использовать в шапке сайта
+                                </label>
+                            </div>
                         </div>
                         <div class="box-footer">
                             <button type="submit" class="btn btn-success">Добавить</button>

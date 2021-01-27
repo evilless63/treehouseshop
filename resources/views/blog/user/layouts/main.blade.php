@@ -16,82 +16,12 @@
         <div class="menu__scroll-content">
           <div class="menu__list">
             <div class="menu__column">
-              <div class="menu__item" data-slug="new">
-                <a href="/catalog/new/womencollection" class="menu__link">
-                  <span class="menu__text">
-                    Новинки </span>
-                </a>
-                <ul class="menu__sub">
-                </ul>
-              </div>
-              <div class="menu__item" data-slug="skoro-v-prodaze">
-                <a href="/catalog/skoro-v-prodaze/womencollection" class="menu__link">
-                  <span class="menu__text">
-                    Скоро в продаже </span>
-                </a>
-                <ul class="menu__sub">
-                </ul>
-              </div>
-              <div class="menu__item menu__item_important" data-slug="sale">
-                <a href="#" class="menu__link menu__link--red js-sub-menu" id="sale-js-sub-menu2">
-                  <span class="menu__text">
-                    Sale до -50% <i class="menu__sub-icon"></i>
-                  </span>
-                  <span class="menu__sub-icon-mobile"></span>
-                </a>
-                <ul class="menu__sub">
-                  <li class="menu__sub-item">
-                    <a href="/catalog/skidki" class="menu__sub-link">
-                      <span class="menu__text ">Смотреть все</span>
-                    </a>
-                  </li>
-                </ul>
-              </div>
-              <div class="menu__item" data-slug="womencollection">
-                <a href="#" class="menu__link js-sub-menu">
-                  <span class="menu__text">
-                    Женщинам <i class="menu__sub-icon"></i>
-                  </span>
-                  <span class="menu__sub-icon-mobile"></span>
-                </a>
-                <ul class="menu__sub">
-                  <li class="menu__sub-item">
-                    <a href="/catalog/new/womencollection" class="menu__sub-link">
-                      <span class="menu__text ">Новинки</span>
-                    </a>
-                  </li>
-                </ul>
-              </div>
-              <div class="menu__item" data-slug="mencollection">
-                <a href="#" class="menu__link js-sub-menu">
-                  <span class="menu__text">
-                    Мужчинам <i class="menu__sub-icon"></i>
-                  </span>
-                  <span class="menu__sub-icon-mobile"></span>
-                </a>
-                <ul class="menu__sub">
-                  <li class="menu__sub-item">
-                    <a href="/catalog/new/mencollection" class="menu__sub-link">
-                      <span class="menu__text ">Новинки</span>
-                    </a>
-                  </li>
-                </ul>
-              </div>
-              <div class="menu__item" data-slug="virtual-cart">
-                <a href="https://12storeez.com/landing/virtual-card" class="menu__link">
-                  <span class="menu__text">
-                    Подарочная карта </span>
-                </a>
-                <ul class="menu__sub">
-                </ul>
-              </div>
+              
+            @include('blog.user.includes.header_categories', ['items'=>$categories_menu->roots()])
+
             </div>
 
             <div class="menu__column">
-              <div class="menu__item" data-slug="shops">
-                <ul class="menu__sub">
-                </ul>
-              </div>
               <div class="menu__item" data-slug="info">
                 <a href="#" class="menu__link js-sub-menu">
                   <span class="menu__text">
@@ -113,11 +43,6 @@
                   <li class="menu__sub-item">
                     <a href="/support/support" class="menu__sub-link">
                       <span class="menu__text ">Вопросы и ответы</span>
-                    </a>
-                  </li>
-                  <li class="menu__sub-item">
-                    <a href="http://resale.12storeez.com/" class="menu__sub-link">
-                      <span class="menu__text ">Сдать одежду</span>
                     </a>
                   </li>
                   <li class="menu__sub-item">
@@ -188,7 +113,7 @@
                 </div>
               </div>
               <div data-dkey="login"></div>
-              <a class="menu__english-link" href="https://en.12storeez.com/">
+              <a class="menu__english-link" href="#">
                 <span>English version</span>
               </a>
             </div>
@@ -202,7 +127,7 @@
               </a>
             </div>
             <div class="menu__contact-item">
-              <a class="menu__contact-link" href="https://www.messenger.com/t/12Storeez" target="_blank">
+              <a class="menu__contact-link" href="https://www.messenger.com/t/domnadereve" target="_blank">
                 <i class="menu__contact-icon fb"></i>
                 <span class="menu__contact-label">Facebook</span>
               </a>
@@ -214,7 +139,7 @@
               </a>
             </div>
             <div class="menu__contact-item">
-              <a class="menu__contact-link" href="mailto:12storeez@12storeez.com">
+              <a class="menu__contact-link" href="mailto:info@domnadereve.com">
                 <i class="menu__contact-icon mail"></i>
                 <span class="menu__contact-label">E-mail</span>
               </a>
@@ -228,7 +153,7 @@
       <div class="menu__holder">
         <div class="menu__tools">
           <div class="menu__tools-item menu__tools-item--globus">
-            <a href="https://en.12storeez.com/" class="menu__tools-button menu__tools-button_globus">
+            <a href="#" class="menu__tools-button menu__tools-button_globus">
               <span class="menu__tools-button-icon menu__tools-button-icon--globus"></span>
               <span class="menu__tools-button-text">English</span>
             </a>
@@ -264,10 +189,9 @@
             <a href="/catalog?search=" class="header-search header-search--left"><i class="header-search__icon"></i></a>
 
             <ul class="header-links">
-              <li class="header-links__item"><a href="/catalog/new/womencollection" class="header-link">Новинки</a></li>
-              <li class="header-links__item"><a href="/catalog/skidki" class="header-link">Sale до -50%</a></li>
-              <li class="header-links__item"><a href="/catalog/verhnaa-odezda" class="header-link">Верхняя одежда</a>
-              </li>
+              @foreach($mainmenu_categories as $main_category)
+              <li class="header-links__item"><a href="{{route('blog.user.catalog', $main_category->id)}}" class="header-link">{{$main_category->title}}</a></li>
+              @endforeach
             </ul>
           </div>
           <div class="logo ">
@@ -445,7 +369,7 @@
                     </li>
                     <li class="footer-list__item footer-list-item">
                       <a class="footer-list-item__link footer-list-item__link-social footer-list-item__link--email"
-                        target="_blank" href="mailto:12storeez@12storeez.com">
+                        target="_blank" href="mailto:info@domnadereve.com">
                         Эл. почта </a>
                     </li>
                     <li class="footer-list__item footer-list-item">
@@ -541,7 +465,7 @@
               <div class="reference-tools">
 
                 <div class="reference-tools__item"> <a
-                    href="//en.12storeez.com/fast/fast-catalog/item/105561?category_id=0"
+                    href="#"
                     class="reference-tools__link en-US">
                     <i class="reference-tools__icon reference-tools__icon_lang"></i>English version </a>
                 </div>
@@ -557,15 +481,15 @@
                 </li>
                 <li class="footer-socials-list__item footer-socials-list-item">
                   <a class="footer-socials-list-item__link footer-socials-list-item__link--facebook "
-                    href="https://www.facebook.com/12Storeez" target="_blank" rel="nofollow"></a>
+                    href="https://www.facebook.com/domnadereve" target="_blank" rel="nofollow"></a>
                 </li>
                 <li class="footer-socials-list__item footer-socials-list-item">
                   <a class="footer-socials-list-item__link footer-socials-list-item__link--instagram "
-                    href="https://www.instagram.com/12storeez_men/" data-text="Men" target="_blank" rel="nofollow"></a>
+                    href="https://www.instagram.com/domnadereve/" data-text="Men" target="_blank" rel="nofollow"></a>
                 </li>
                 <li class="footer-socials-list__item footer-socials-list-item">
                   <a class="footer-socials-list-item__link footer-socials-list-item__link--instagram "
-                    href="https://www.instagram.com/12Storeez/" data-text="Women" target="_blank" rel="nofollow"></a>
+                    href="https://www.instagram.com/domnadereve/" data-text="Women" target="_blank" rel="nofollow"></a>
                 </li>
               </ul>
             </div>

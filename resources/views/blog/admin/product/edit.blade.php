@@ -92,13 +92,19 @@
 
                             <div class="form-group">
                                 <label>
-                                    <input type="checkbox" name="status" {{$product->status ? 'checked' : null}}> Статус
+                                    <input type="checkbox" name="status" {{$product->status ? 'checked' : null}}> Показывать на сайте
                                 </label>
                             </div>
 
                             <div class="form-group">
                                 <label>
-                                    <input type="checkbox" name="hit" {{$product->hit ? 'checked' : null}}> Хит
+                                    <input type="checkbox" name="is_new" {{$product->is_new ? 'checked' : null}}> Новинка
+                                </label>
+                            </div>
+
+                            <div class="form-group">
+                                <label>
+                                    <input type="checkbox" name="hit" {{$product->hit ? 'checked' : null}}> Бестселлер
                                 </label>
                             </div>
 
