@@ -198,7 +198,7 @@
                 Дом на дереве
               </a>
             </div>
-            <div data-url="" data-uptitle="вверх" class="header__title js-scroll-top">Wishlist</div>
+            <div data-url="" data-uptitle="вверх" class="header__title js-scroll-top">^</div>
             <div class="header__right-panel">
 
               <a href="/catalog?search=" class="header-search header-search--right">

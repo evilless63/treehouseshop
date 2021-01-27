@@ -4,16 +4,16 @@
 <div class="snow-frame" id="snow-frame"></div>
 
 
-      <div class="hero" data-id="48" data-title="С чистого листа: история января">
+      <div class="hero" data-id="48" data-title="Приветственный текст Дом на дереве (для акций и тд и тп)">
 
         <div class="hero__media hero__image-wrapper">
           <img class="hero__image"
-            src="https://12storeez.com/uploads/images/CATALOG/shoes/108189/5fffe889c84ba-new-kopiya.jpg"
-            alt="С чистого листа: история января">
+            src="{{asset('/uploads/banners_media/banner_info.jpg')}}"
+            alt="Приветственный текст Дом на дереве (для акций и тд и тп)">
         </div>
 
         <a href="{{route('blog.user.catalog', 6)}}" class="hero__holder">
-          <span class="hero__button">С чистого листа: история января</span>
+          <span class="hero__button">Приветственный текст Дом на дереве (для акций и тд и тп)</span>
         </a>
       </div>
 
@@ -21,43 +21,43 @@
         <div class="home-categories__wrapper">
           <div class="home-categories__holder">
             <div class="home-categories__list">
-              <div class="categories-card home-categories__item" data-title="С чистого листа: история января">
+              <div class="categories-card home-categories__item" data-title="Приветственный текст Дом на дереве (для акций и тд и тп)">
                 <div class="home-categories__item-inner">
-                  <div class="home-categories__image"
-                    style="background-image: url('https://12storeez.com/uploads/images/CATALOG/shoes/108189/5fffe88f5805e-new-mob.jpg');">
+                  <div class="home-categories__image">
+                    
                   </div>
-                  <div class="categories-card__title">С чистого листа: история января</div>
-                  <a href="https://12storeez.com/lookbook/item/136" class="categories-card__link"></a>
-                </div>
-              </div>
-
-              <div class="categories-card home-categories__item" data-title="Новинки">
-                <div class="home-categories__item-inner">
-                  <div class="home-categories__image"
-                    style="background-image: url('/images/598x750_90_out/uploads/images/CATALOG/jackets/104040/5ffd5ab34cf72-novinki.jpg');">
-                  </div>
-                  <div class="categories-card__title">Новинки</div>
+                  <div class="categories-card__title">Приветственный текст Дом на дереве (для акций и тд и тп)</div>
                   <a href="{{route('blog.user.catalog', 3)}}" class="categories-card__link"></a>
                 </div>
               </div>
 
-              <div class="categories-card home-categories__item" data-title="Верхняя одежда">
+              <div class="categories-card home-categories__item" data-title="Платья">
+                <div class="home-categories__item-inner">
+                  <div class="home-categories__image"
+                    style="background-image: url('/images/598x750_90_out/uploads/images/CATALOG/jackets/104040/5ffd5ab34cf72-novinki.jpg');">
+                  </div>
+                  <div class="categories-card__title">Платья</div>
+                  <a href="{{route('blog.user.catalog', 3)}}" class="categories-card__link"></a>
+                </div>
+              </div>
+
+              <div class="categories-card home-categories__item" data-title="Стильные аксессуары">
                 <div class="home-categories__item-inner">
                   <div class="home-categories__image"
                     style="background-image: url('/images/598x750_90_out/uploads/images/CATALOG/jackets/104040/5ffd4e93a6e0d-verhnyaya-odezhda.jpg');">
                   </div>
-                  <div class="categories-card__title">Верхняя одежда</div>
+                  <div class="categories-card__title">Стильные аксессуары</div>
                   <a href="{{route('blog.user.catalog', 5)}}"
                     class="categories-card__link"></a>
                 </div>
               </div>
 
-              <div class="categories-card home-categories__item" data-title="Трикотаж">
+              <div class="categories-card home-categories__item" data-title="Самый первый альбом">
                 <div class="home-categories__item-inner">
                   <div class="home-categories__image"
                     style="background-image: url('/images/598x750_90_out/uploads/images/CATALOG/jackets/104040/5ffd4ec76ec95-trikotazh.jpg');">
                   </div>
-                  <div class="categories-card__title">Трикотаж</div>
+                  <div class="categories-card__title">Самый первый альбом</div>
                   <a href="{{route('blog.user.catalog', 5)}}" class="categories-card__link"></a>
                 </div>
               </div>
@@ -73,35 +73,35 @@
         <div class="categories-cards categories-cards_with-only-mobile-element">
           <div class="categories-cards__holder">
             <div class="categories-cards__list">
-              <div class="categories-card categories-card_mobile" data-title="С чистого листа: история января">
+              <div class="categories-card categories-card_mobile" data-title="Приветственный текст Дом на дереве (для акций и тд и тп)">
                 <div class="categories-card__head">
-                  <div class="categories-card__title">С чистого листа: история января</div>
-                  <a href="https://12storeez.com/lookbook/item/136" class="categories-card__href">Перейти</a>
+                  <div class="categories-card__title">Приветственный текст Дом на дереве (для акций и тд и тп)</div>
+                  <a href="{{route('blog.user.catalog', 3)}}" class="categories-card__href">Перейти</a>
                 </div>
-                <a href="https://12storeez.com/lookbook/item/136" class="categories-card__link">
-                  <img src="https://12storeez.com/uploads/images/CATALOG/shoes/108189/5fffe88f5805e-new-mob.jpg"
+                <a href="{{route('blog.user.catalog', 3)}}" class="categories-card__link">
+                  <img src="{{asset('/uploads/banners_media/banner_info.jpg')}}"
                     class="categories-card__image" />
                 </a>
               </div>
-              <div class="categories-card" data-title="Новинки">
+              <div class="categories-card" data-title="Атмосферные шатры">
                 <div class="categories-card__head">
-                  <div class="categories-card__title">Новинки</div>
-                  <a href="https://12storeez.com/catalog/new/womencollection" class="categories-card__href">Перейти</a>
+                  <div class="categories-card__title">Атмосферные шатры</div>
+                  <a href="{{route('blog.user.catalog', 3)}}" class="categories-card__href">Перейти</a>
                 </div>
-                <a href="https://12storeez.com/catalog/new/womencollection" class="categories-card__link">
-                  <img src="/images/598x750_90_out/uploads/images/CATALOG/jackets/104040/5ffd5ab34cf72-novinki.jpg"
+                <a href="{{route('blog.user.catalog', 3)}}" class="categories-card__link">
+                  <img src="{{asset('uploads/banners_media/shatry.jpg')}}"
                     class="categories-card__image" />
                 </a>
               </div>
-              <div class="categories-card" data-title="Верхняя одежда">
+              <div class="categories-card" data-title="Стильные аксессуары">
                 <div class="categories-card__head">
-                  <div class="categories-card__title">Верхняя одежда</div>
-                  <a href="https://12storeez.com/catalog/verhnaa-odezda/womencollection"
+                  <div class="categories-card__title">Стильные аксессуары</div>
+                  <a href="{{route('blog.user.catalog', 3)}}"
                     class="categories-card__href">Перейти</a>
                 </div>
-                <a href="https://12storeez.com/catalog/verhnaa-odezda/womencollection" class="categories-card__link">
+                <a href="{{route('blog.user.catalog', 3)}}" class="categories-card__link">
                   <img
-                    src="/images/598x750_90_out/uploads/images/CATALOG/jackets/104040/5ffd4e93a6e0d-verhnyaya-odezhda.jpg"
+                    src="{{asset('uploads/banners_media/stilnye.png')}}"
                     class="categories-card__image" />
                 </a>
               </div>
@@ -188,24 +188,24 @@
         <div class="categories-cards">
           <div class="categories-cards__holder">
             <div class="categories-cards__list">
-              <div class="categories-card eveke" data-title="Трикотаж">
+              <div class="categories-card eveke" data-title="Самый первый альбом">
                 <div class="categories-card__head">
-                  <div class="categories-card__title">Трикотаж</div>
-                  <a href="/catalog/trikotaz" class="categories-card__href">Перейти</a>
+                  <div class="categories-card__title">Самый первый альбом</div>
+                  <a href="{{route('blog.user.catalog', 3)}}" class="categories-card__href">Перейти</a>
                 </div>
-                <a href="/catalog/trikotaz" class="categories-card__link">
-                  <img src="/images/598x750_90_out/uploads/images/CATALOG/jackets/104040/5ffd4ec76ec95-trikotazh.jpg"
+                <a href="{{route('blog.user.catalog', 3)}}" class="categories-card__link">
+                  <img src="{{asset('uploads/banners_media/albom.jpg')}}"
                     class="categories-card__image" />
                 </a>
               </div>
 
-              <div class="categories-card" data-title="Обувь">
+              <div class="categories-card" data-title="Удобная и красивая детская одежда">
                 <div class="categories-card__head">
-                  <div class="categories-card__title">Обувь</div>
-                  <a href="https://12storeez.com/catalog/obuv/womencollection" class="categories-card__href">Перейти</a>
+                  <div class="categories-card__title">Удобная и красивая детская одежда</div>
+                  <a href="{{route('blog.user.catalog', 3)}}" class="categories-card__href">Перейти</a>
                 </div>
-                <a href="https://12storeez.com/catalog/obuv/womencollection" class="categories-card__link">
-                  <img src="/images/598x750_90_out/uploads/images/CATALOG/jackets/104040/5ffd4eab165fa-obuv.jpg"
+                <a href="{{route('blog.user.catalog', 3)}}" class="categories-card__link">
+                  <img src="{{asset('uploads/banners_media/odejda.jpg')}}"
                     class="categories-card__image" />
                 </a>
               </div>
@@ -218,12 +218,12 @@
         <div class="categories-cards">
           <div class="categories-cards__holder">
             <div class="categories-cards__list">
-              <div class="categories-card" data-title="Обувь">
+              <div class="categories-card" data-title="Удобная и красивая детская одежда">
                 <div class="categories-card__head">
-                  <div class="categories-card__title">Обувь</div>
-                  <a href="https://12storeez.com/catalog/obuv/womencollection" class="categories-card__href">Перейти</a>
+                  <div class="categories-card__title">Удобная и красивая детская одежда</div>
+                  <a href="{{route('blog.user.catalog', 3)}} class="categories-card__href">Перейти</a>
                 </div>
-                <a href="https://12storeez.com/catalog/obuv/womencollection" class="categories-card__link">
+                <a href="{{route('blog.user.catalog', 3)}}" class="categories-card__link">
                   <img src="/images/598x750_90_out/uploads/images/CATALOG/jackets/104040/5ffd4eab165fa-obuv.jpg"
                     class="categories-card__image" />
                 </a>
@@ -345,7 +345,7 @@
   <meta name="viewport"
     content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=0, minimal-ui">
   <meta name="description"
-    content="Большой выбор женской одежды, платья, рубашки, костюмы, верхняя одежда, аксессуары. Доставка.">
+    content="Интернет-магазин детской одежды - Дом на дереве">
 
   <link rel="stylesheet" href="{{asset('assets/js/home/styles.css')}}">
   <link rel="stylesheet" href="{{asset('assets/css/fast-catalog-item/styles.css')}}">

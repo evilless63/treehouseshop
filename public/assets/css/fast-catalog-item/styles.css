@@ -9809,7 +9809,8 @@ a.findsize-download:hover {
 
 .categories-card__image {
     display: block;
-    width: 100%
+    width: 100%;
+    border-radius: 15px;
 }
 
 .categories-cards {
