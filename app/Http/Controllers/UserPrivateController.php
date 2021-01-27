@@ -15,7 +15,7 @@ class UserPrivateController extends UserBaseController
 
     private $productRepository;
     public $mainmenu_categories;
-    public $categories_menu;
+    
 
 
     public function __construct()

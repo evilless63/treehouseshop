@@ -7,13 +7,12 @@
           <form id="login-form" class="form login__form" action="/user/login" method="post">
             <div class="form__item field-loginform-username">
               <label class="form__label form__label_full" for="loginform-username">Е-mail или телефон</label><input
-                type="text" id="loginform-username" class="form__input" name="LoginForm[username]" maxlength="255">
+                type="text" id="loginform-username" class="form__input" name="LoginForm[username]">
               <p class="form__error-message"></p>
             </div>
             <div class="form__item field-loginform-password required">
               <label class="form__label form__label_full" for="loginform-password">Пароль</label><input type="password"
-                id="loginform-password" class="form__input" name="LoginForm[password]" maxlength="255"
-                aria-required="true">
+                id="loginform-password" class="form__input" name="LoginForm[password]" aria-required="true">
               <p class="form__error-message"></p>
             </div>
             <div class="login__recover">

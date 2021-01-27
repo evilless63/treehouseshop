@@ -1245,8 +1245,8 @@
       }
 
       body.ab-hide-more-item .ab-hide-more-btn .button {
-        border-color: #c5a995;
-        color: #c5a995;
+        border-color: #928966;
+        color: #928966;
       }
     }
   </style>
