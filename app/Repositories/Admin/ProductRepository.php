@@ -55,7 +55,7 @@
         {
             $related_products = $this->startConditions()
                 ->join('related_products', 'products.id', '=', 'related_products.related_id')
-                ->select('products.title', 'related_products.related_id')
+                ->select('products.title', 'related_products.related_id', 'products.img')
                 ->where('related_products.product_id', $id)
                 ->get();
             return $related_products;

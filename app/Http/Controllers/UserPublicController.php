@@ -79,6 +79,7 @@ class UserPublicController extends UserBaseController
         // }
 
         $related_products = $this->productRepository->getRelatedProducts($id);
+        dd($related_products);
         $images = $this->productRepository->getGallery($id);
         $product = Product::find($id);
                 
