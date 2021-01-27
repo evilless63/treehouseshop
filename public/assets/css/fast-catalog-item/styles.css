@@ -7378,7 +7378,8 @@ body.hide_one_click .button_one_click {
     object-position: 50% 50%;
     position: absolute;
     top: 0;
-    width: 100%
+    width: 100%;
+    border-radius: 15px;
 }
 
 @media (min-width:1024px) {
@@ -7389,7 +7390,8 @@ body.hide_one_click .button_one_click {
 
 .card-media__image,
 .card-media__thumbs-image {
-    display: block
+    display: block;
+    border-radius: 8px;
 }
 
 .card-media__play-button {
