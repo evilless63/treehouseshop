@@ -314,7 +314,7 @@
                   class="slider-news__arrow slider-news__arrow_next">Next</button> </div>
             </div>
             <div class="slider-news__list js-slider-collections preview-block">
-            @foreach($instagram_posts as $instagram_post)
+            <!-- @foreach($instagram_posts as $instagram_post)
               <a href="{{$instagram_post->getLink()}}" class="slider-news__item preview-link" target="_blank" data-id=""
                 data-position="" data-title="">
                 <div class="slider-news__media"><img alt="{{$instagram_post->getCaption()}}"
@@ -322,7 +322,7 @@
                     class="slider-news__image" /> </div>
                 <div class="slider-news__item-title"><span></span></div>
               </a>
-            @endforeach
+            @endforeach -->
             </div>
           </div>
         </div>

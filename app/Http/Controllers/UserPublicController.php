@@ -33,11 +33,11 @@ class UserPublicController extends UserBaseController
 
     public function index() {
 
-        $instagram = \InstagramScraper\Instagram::withCredentials(new \GuzzleHttp\Client(), 'iraemelianova', 'alena210813', new Psr16Adapter('Files'));
-        $instagram->setUserAgent('User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:78.0) Gecko/20100101 Firefox/78.0');
-        $instagram->login(false);
-        $instagram->saveSession();
-        $instagram_posts = $instagram->getMedias('dom_na_dereve', 10);
+        // $instagram = \InstagramScraper\Instagram::withCredentials(new \GuzzleHttp\Client(), 'iraemelianova', 'alena210813', new Psr16Adapter('Files'));
+        // $instagram->setUserAgent('User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:78.0) Gecko/20100101 Firefox/78.0');
+        // $instagram->login(false);
+        // $instagram->saveSession();
+        // $instagram_posts = $instagram->getMedias('dom_na_dereve', 10);
 
         $new_products = Product::where('status','1')->where('is_new', '1')->get();
         $bestseller_products = Product::where('status','1')->where('hit', '1')->get();
