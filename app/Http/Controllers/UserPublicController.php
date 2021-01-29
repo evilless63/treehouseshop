@@ -41,7 +41,7 @@ class UserPublicController extends UserBaseController
 
         $new_products = Product::where('status','1')->where('is_new', '1')->get();
         $bestseller_products = Product::where('status','1')->where('hit', '1')->get();
-        return view('blog.user.public.index', compact('new_products', 'bestseller_products', 'instagram_posts'));
+        return view('blog.user.public.index', compact('new_products', 'bestseller_products'));
     }
 
     public function catalog($id = null) {
