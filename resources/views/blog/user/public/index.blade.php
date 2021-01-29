@@ -314,13 +314,15 @@
                   class="slider-news__arrow slider-news__arrow_next">Next</button> </div>
             </div>
             <div class="slider-news__list js-slider-collections preview-block">
-              <!-- <a href="https://12storeez.com/lookbook/item/133" class="slider-news__item preview-link" data-id="14"
-                data-position="1" data-title="Часть 2. Новогодняя капсула">
-                <div class="slider-news__media"><img
-                    src="/images/290x363_90_out/uploads/images/5fc6429d0188a-5fb3c886068fa-64044.jpg"
+            @foreach($instagram_posts as $instagram_post)
+              <a href="{{$instagram_post->getLink()}}" class="slider-news__item preview-link" target="_blank" data-id=""
+                data-position="" data-title="">
+                <div class="slider-news__media"><img alt="{{$instagram_post->getCaption()}}"
+                    src="{{$instagram_post->getImageThumbnailUrl()}}"
                     class="slider-news__image" /> </div>
-                <div class="slider-news__item-title"><span>Часть 2. Новогодняя капсула</span></div>
-              </a> -->
+                <div class="slider-news__item-title"><span></span></div>
+              </a>
+            @endforeach
             </div>
           </div>
         </div>

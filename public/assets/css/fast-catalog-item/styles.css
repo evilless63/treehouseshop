@@ -20463,7 +20463,8 @@ html:not(.t-main):not(.t-404) .page {
 
 .slider-news__media {
     width: 100%;
-    padding-bottom: 125.36591%;
+    /* padding-bottom: 125.36591%; */
+    padding-bottom: 100%;
     position: relative
 }
 

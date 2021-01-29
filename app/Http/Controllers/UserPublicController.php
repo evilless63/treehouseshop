@@ -10,6 +10,8 @@ use Auth;
 use App\Repositories\Admin\ProductRepository;
 use App\Repositories\Admin\CategoryRepository;
 
+use Phpfastcache\Helper\Psr16Adapter;
+
 class UserPublicController extends UserBaseController
 {
 
@@ -30,9 +32,15 @@ class UserPublicController extends UserBaseController
     }
 
     public function index() {
+
+        $instagram = \InstagramScraper\Instagram::withCredentials(new \GuzzleHttp\Client(), 'iraemelianova', 'alena210813', new Psr16Adapter('Files'));
+        $instagram->login();
+        $instagram->saveSession();
+        $instagram_posts = $instagram->getMedias('dom_na_dereve', 10);
+
         $new_products = Product::where('status','1')->where('is_new', '1')->get();
         $bestseller_products = Product::where('status','1')->where('hit', '1')->get();
-        return view('blog.user.public.index', compact('new_products', 'bestseller_products'));
+        return view('blog.user.public.index', compact('new_products', 'bestseller_products', 'instagram_posts'));
     }
 
     public function catalog($id = null) {
