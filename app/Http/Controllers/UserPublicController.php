@@ -35,7 +35,7 @@ class UserPublicController extends UserBaseController
 
         $instagram = \InstagramScraper\Instagram::withCredentials(new \GuzzleHttp\Client(), 'iraemelianova', 'alena210813', new Psr16Adapter('Files'));
         $instagram->setUserAgent('User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:78.0) Gecko/20100101 Firefox/78.0');
-        $instagram->login(false, true);
+        $instagram->login(false);
         $instagram->saveSession();
         $instagram_posts = $instagram->getMedias('dom_na_dereve', 10);
 
