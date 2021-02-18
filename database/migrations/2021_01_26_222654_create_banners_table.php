@@ -16,13 +16,20 @@ class CreateBannersTable extends Migration
         Schema::create('banners', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->string('title',255)->default('default');
             $table->string('media',255)->nullable();
-            $table->string('mobile_media',255)->nullable();
-            $table->text('content')->default('');
+            $table->string('mobile_media',255)->nullable();           
             $table->boolean('is_active')->default(false);
             $table->string('link_category')->default('');
-            $table->integer('bannerposition_id')->nullable();
+            $table->integer('bannerposition')->nullable();
+        });
+
+        Schema::create('banner_localizations', function(Blueprint $table) {
+            $table->increments('id');
+            $table->unsignedBigInteger('banner_id')->unsigned()->index();
+            $table->string('lang', 2);
+            $table->string('title',255);
+            $table->text('content')->nullable();
+            $table->foreign('banner_id')->references('id')->on('banners')->onDelete('cascade');
         });
     }
 

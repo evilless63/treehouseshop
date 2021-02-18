@@ -304,6 +304,7 @@
           </div>
         </div>
       </div>
+      @if($instagram_posts->count() > 0)
       <div class="slider-news home-previews-slider" data-ga-name="Stories">
         <div class="slider-news__holder">
           <div class="slider-news__wrapper">
@@ -314,19 +315,20 @@
                   class="slider-news__arrow slider-news__arrow_next">Next</button> </div>
             </div>
             <div class="slider-news__list js-slider-collections preview-block">
-            <!--
-              <a href="" class="slider-news__item preview-link" target="_blank" data-id=""
+            @foreach($instagram_posts as $inst_post)
+              <a href="{{$inst_post->post_link}}" class="slider-news__item preview-link" target="_blank" data-id=""
                 data-position="" data-title="">
                 <div class="slider-news__media"><img alt=""
-                    src=""
+                    src="$inst_post->img_link"
                     class="slider-news__image" /> </div>
                 <div class="slider-news__item-title"><span></span></div>
               </a>
-            -->
+            @endforeach
             </div>
           </div>
         </div>
       </div>
+      @endif
 @endsection
 
 @section('scripts')

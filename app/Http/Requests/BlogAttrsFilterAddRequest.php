@@ -24,7 +24,7 @@ class BlogAttrsFilterAddRequest extends FormRequest
     public function rules()
     {
         return [
-            'attr_group_id' => 'integer',
+            // 'attr_group_id' => 'integer',
         ];
     }
 
@@ -32,7 +32,7 @@ class BlogAttrsFilterAddRequest extends FormRequest
     public function messages()
     {
         return [
-            'attr_group_id.integer' => 'Id должен быть числом',
+            // 'attr_group_id.integer' => 'Id должен быть числом',
         ];
     }
 

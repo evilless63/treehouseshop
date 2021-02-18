@@ -45,6 +45,11 @@ $('.sidebar-menu a').each(function () {
 /** KCFinder  */
 
 $( '#editor1' ).ckeditor();
+$( '#editor2' ).ckeditor();
+$( '#editor3' ).ckeditor();
+$( '#editor4' ).ckeditor();
+$( '#editor5' ).ckeditor();
+$( '#editor6' ).ckeditor();
 
 /** ----------- */
 

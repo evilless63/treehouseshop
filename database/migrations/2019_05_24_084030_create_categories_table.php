@@ -17,14 +17,23 @@ class CreateCategoriesTable extends Migration
             $table->engine = 'InnoDB';
 
             $table->bigIncrements('id');
-            $table->string('title',255);
             $table->string('alias',255)->unique();
-            $table->tinyInteger('parent_id')->unsigned()->default(0);
-            $table->string('keywords',255)->nullable();
-            $table->string('description',255)->nullable();
+            $table->bigInteger('parent_id')->unsigned()->default(0);
+            $table->boolean('in_header')->default(false);
             $table->timestamps();
             $table->softDeletes();
+            $table->string('title',255);
 
+        });
+
+        Schema::create('category_localizations', function(Blueprint $table) {
+            $table->increments('id');
+            $table->unsignedBigInteger('category_id')->unsigned()->index();
+            $table->string('lang', 2);
+            $table->string('title',255);
+            $table->string('keywords',255)->nullable();
+            $table->string('description',255)->nullable();
+            $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
         });
     }
 

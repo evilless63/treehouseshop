@@ -4,8 +4,10 @@ namespace App\Models\Admin;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use App\Models\Admin\LocalizedModel;
+use App\Models\Admin\Product;
 
-class Category extends Model
+class Category extends LocalizedModel
 {
 
     use SoftDeletes;
@@ -22,6 +24,7 @@ class Category extends Model
         'updated_at',
         'deleted_at',
     ];
+    
 
 
     /**
@@ -33,6 +36,8 @@ class Category extends Model
     }
 
 
-
+    public function products() {
+        return $this->belongsToMany(Product::class, 'categories_products', 'product_id', 'category_id');
+    }
 
 }

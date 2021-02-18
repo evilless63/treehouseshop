@@ -66,12 +66,12 @@
             $mBuilder = LavMenu::make('MyNav', function ($m) use ($arrMenu) {
                 foreach ($arrMenu as $item) {
                     if ($item->parent_id == 0) {
-                        $m->add($item->title, $item->id, $item->parent_id)
+                        $m->add($item->localization->title, $item->id, $item->parent_id)
                             ->id($item->id);
                     } else {
                         if ($m->find($item->parent_id)) {
                             $m->find($item->parent_id)
-                                ->add($item->title, $item->id, $item->parent_id)
+                                ->add($item->localization->title, $item->id, $item->parent_id)
                                 ->id($item->id);
                         }
                     }
@@ -86,13 +86,12 @@
             $columns = implode(',', [
                 'id',
                 'parent_id',
-                'title',
-                'CONCAT (id, ". ", title) AS combo_title',
+                // 'CONCAT (id, ". ", title) AS combo_title',
                 ]);
 
-            $result = $this->startConditions()
-                ->selectRaw($columns)
-                ->toBase()
+            $result = $this->startConditions()->join('category_localizations', 'categories.id', '=', 'category_localizations.category_id')
+                ->select('categories.id', 'categories.parent_id', 'category_localizations.title AS combo_title')
+                ->where('category_localizations.lang', 'ru')
                 ->get();
 
             return $result;
@@ -102,8 +101,9 @@
         public function checkUniqueName($name,$parent_id)
         {
             $name = $this->startConditions()
-                ->where('title','=', $name)
-                ->where('parent_id','=',$parent_id)
+                ->join('category_localizations', 'categories.id', '=', 'category_localizations.category_id')
+                ->where('category_localizations.title','=', $name)
+                ->where('categories.parent_id','=',$parent_id)
                 ->exists();
             return $name;
         }

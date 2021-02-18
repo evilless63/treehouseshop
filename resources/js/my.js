@@ -9,7 +9,7 @@ $('.delete').click(function () {
 /** Подтверждение удаление из БД Заказа */
 $('.deletebd').click(function () {
     var res = confirm('Подтвердите действие');
-    if (res){
+    if (res) {
         var ress = confirm('ВЫ УДАЛИТЕ ЗАПИСЬ ИЗ БД!');
         if (!ress) return false;
     }
@@ -27,15 +27,15 @@ $('.redact').click(function () {
 
 /** чтобы в админке слева меню горело активное */
 $('.sidebar-menu a').each(function () {
-// window.location.protocol = http или https далее конкатенация . ‘//’ .  //далее хост window.location.host + и window.location.pathname
+    // window.location.protocol = http или https далее конкатенация . ‘//’ .  //далее хост window.location.host + и window.location.pathname
     var location = window.location.protocol + '//' + window.location.host + window.location.pathname;
-//текущая ссылка в этом элементе '.sidebar-menu a'
+    //текущая ссылка в этом элементе '.sidebar-menu a'
     var link = this.href;
-//ну и сравниваю их
-    if (link == location){
-//делаю активной родителя , даю класс ей 'active'
+    //ну и сравниваю их
+    if (link == location) {
+        //делаю активной родителя , даю класс ей 'active'
         $(this).parent().addClass('active');
-// даю класс 'active' ближайшего предка с классом treeview'
+        // даю класс 'active' ближайшего предка с классом treeview'
         $(this).closest('.treeview').addClass('active');
     }
 });
@@ -48,13 +48,23 @@ var create = '/admin/products/create';
 
 if (window.location.pathname === create) {
     CKEDITOR.replace('editor1');
+    CKEDITOR.replace('editor2');
+    CKEDITOR.replace('editor3');
+    CKEDITOR.replace('editor4');
+    CKEDITOR.replace('editor5');
+    CKEDITOR.replace('editor6');
 
 }
 
 var id = $('div.hidden').data('name');
 var edit = '/admin/products/' + id + '/edit';
-if (window.location.pathname === edit){
+if (window.location.pathname === edit) {
     CKEDITOR.replace('editor1');
+    CKEDITOR.replace('editor2');
+    CKEDITOR.replace('editor3');
+    CKEDITOR.replace('editor4');
+    CKEDITOR.replace('editor5');
+    CKEDITOR.replace('editor6');
 }
 
 /** ----------- */
@@ -130,25 +140,25 @@ var _token = $('input#_token').val();
 var form_data2 = new FormData();
 form_data2.append("_token", _token);
 
-if(buttonMulti && window.location.pathname === create || window.location.pathname === edit){
+if (buttonMulti && window.location.pathname === create || window.location.pathname === edit) {
     new AjaxUpload(buttonMulti, {
         headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         },
         action: buttonMulti.data('url') + "?upload=1",
-        data: {name: buttonMulti.data('name'), _token: _token},
+        data: { name: buttonMulti.data('name'), _token: _token },
         name: buttonMulti.data('name'),
         onSubmit: function (file, ext) {
             if (!(ext && /^(jpg|png|jpeg|gif)$/i.test(ext))) {
                 alert('Ошибка! Разрешены только картинки');
                 return false;
             }
-            buttonMulti.closest('.file-upload').find('.overlay').css({'display': 'block'});
+            buttonMulti.closest('.file-upload').find('.overlay').css({ 'display': 'block' });
 
         },
         onComplete: function (file, response) {
             setTimeout(function () {
-                buttonMulti.closest('.file-upload').find('.overlay').css({'display': 'none'});
+                buttonMulti.closest('.file-upload').find('.overlay').css({ 'display': 'none' });
 
                 response = JSON.parse(response);
                 $('.' + buttonMulti.data('name')).append('<img src="/uploads/gallery/' + response.file + '" style="max-height: 150px;">');
@@ -173,14 +183,14 @@ $('.del-items').on('click', function () {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         },
         url: '/admin/products/delete-gallery',
-        data: {id: id, src: src, _token: _token},
+        data: { id: id, src: src, _token: _token },
         type: 'POST',
         beforeSend: function () {
-            $this.closest('.file-upload').find('.overlay').css({'display': 'block'});
+            $this.closest('.file-upload').find('.overlay').css({ 'display': 'block' });
         },
         success: function (res) {
             setTimeout(function () {
-                $this.closest('.file-upload').find('.overlay').css({'display': 'none'});
+                $this.closest('.file-upload').find('.overlay').css({ 'display': 'none' });
                 if (res == 1) {
                     $this.fadeOut();
                 }

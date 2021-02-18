@@ -22,7 +22,7 @@
          * @var Model
          */
         protected $model;
-
+        protected $locale;
 
         public function __construct()
         {

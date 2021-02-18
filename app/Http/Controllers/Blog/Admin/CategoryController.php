@@ -36,7 +36,8 @@ class CategoryController extends AdminBaseController
      */
     public function index()
     {
-        $arrMenu = Category::all();
+        $arrMenu = Category::withLocalization('ru')->get();
+
         $menu = $this->categoryRepository->buildMenu($arrMenu);
 
         MetaTag::setTags(['title' => 'Список категорий']);
@@ -58,7 +59,7 @@ class CategoryController extends AdminBaseController
 
         MetaTag::setTags(['title' => 'Добавление категории']);
         return view('blog.admin.category.create', [
-            'categories' => Category::with('children')->where('parent_id', '0')->get(),
+            'categories' => Category::with('children')->where('parent_id', '0')->withLocalization('ru')->get(),
             'delimiter' => '-',
             'item' => $item,
         ]);
@@ -74,6 +75,7 @@ class CategoryController extends AdminBaseController
      */
     public function store(BlogCategoryUpdateRequest $request)
     {
+
         $name = $this->categoryRepository->checkUniqueName($request->title,$request->parent_id);
 
         if($name){
@@ -87,6 +89,11 @@ class CategoryController extends AdminBaseController
         $data['in_header'] = $request->in_header ? '1' : '0';
         $item->fill($data)->save();
 
+        foreach($request->input('localization', []) as $k => $i) {
+            /** @var PostLocalization $locale */
+            $locale = $item->localizations()
+                ->create($i + ['lang' => $k]);
+        }
         
 
         if ($item) {
@@ -116,13 +123,27 @@ class CategoryController extends AdminBaseController
             abort(404);
         }
 
+        $item = Category::where('id', $id)->first();
+
+        $ruLoc = $item
+        ->localization()
+        ->where('lang', 'ru')
+        ->first();
+
+        $enLoc = $item
+        ->localization()
+        ->where('lang', 'en')
+        ->first();
+
         $categoryList = $this->categoryRepository->getComboBoxCategories();
 
         MetaTag::setTags(['title' => 'Редактирование категории']);
         return view('blog.admin.category.edit',[
-            'categories' => Category::with('children')->where('parent_id','0')->get(),
+            'categories' => Category::with('children')->where('parent_id', '0')->withLocalization('ru')->get(),
             'delimiter' => '-',
             'item' => $item,
+            'ruLoc' => $ruLoc,
+            'enLoc' => $enLoc,
         ]);
     }
 
@@ -147,6 +168,13 @@ class CategoryController extends AdminBaseController
         $data = $request->all();
         $data['in_header'] = $request->in_header ? '1' : '0';
         $result = $item->update($data);
+
+        foreach($request->input('localization', []) as $k => $i) {
+            /** @var PostLocalization $locale */
+            $locale = $item->localizations()
+                ->updateOrCreate($i + ['lang' => $k]);
+        }
+
         if ($result){
             return redirect()
                 ->route('blog.admin.categories.edit', $item->id)

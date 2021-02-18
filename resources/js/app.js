@@ -83,13 +83,22 @@ $('.sidebar-menu a').each(function () {
     var create = '/admin/products/create';
     if (window.location.pathname === create) {
         CKEDITOR.replace('editor1');
-
+        CKEDITOR.replace('editor2');
+        CKEDITOR.replace('editor3');
+        CKEDITOR.replace('editor4');
+        CKEDITOR.replace('editor5');
+        CKEDITOR.replace('editor6');
     }
 
     var id = $('div.hidden').data('name');
     var edit = '/admin/products/' + id + '/edit';
     if (window.location.pathname === edit){
         CKEDITOR.replace('editor1');
+        CKEDITOR.replace('editor2');
+        CKEDITOR.replace('editor3');
+        CKEDITOR.replace('editor4');
+        CKEDITOR.replace('editor5');
+        CKEDITOR.replace('editor6');
     }
 
 /** ----------- */

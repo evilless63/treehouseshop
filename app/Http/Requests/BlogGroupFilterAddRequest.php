@@ -24,7 +24,7 @@ class BlogGroupFilterAddRequest extends FormRequest
     public function rules()
     {
         return [
-            'title' => 'min:4|max:25',
+            // 'title' => 'min:4|max:25',
         ];
 
     }
@@ -33,8 +33,8 @@ class BlogGroupFilterAddRequest extends FormRequest
     public function messages()
     {
         return [
-            'title.min' => 'Минимальная длинна 4 символов',
-            'title.max' => 'Максимальная длинна 25 символов',
+            // 'title.min' => 'Минимальная длинна 4 символов',
+            // 'title.max' => 'Максимальная длинна 25 символов',
         ];
     }
 

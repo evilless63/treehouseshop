@@ -30,14 +30,14 @@
 @endsection
 
 @section('scripts')
-<script src="assets/js/jquery.js"></script>
-  <script src="assets/js/yii.js"></script>
-  <script src="assets/js/chunks/vendor.js"></script>
-  <script src="assets/js/chunks/layout-base.js"></script>
-  <script src="assets/js/fast-catalog-item/scripts.js"></script>
-  <script src="assets/js/jquery-ui.js"></script>
-  <script src="assets/js/autocomplete.js"></script>
-  <script src="assets/js/home/scripts.js"></script>
+<script src="{{asset('assets/js/jquery.js')}}"></script>
+  <script src="{{asset('assets/js/yii.js')}}"></script>
+  <script src="{{asset('assets/js/chunks/vendor.js')}}"></script>
+  <script src="{{asset('assets/js/chunks/layout-base.js')}}"></script>
+  <script src="{{asset('assets/js/fast-catalog-item/scripts.js')}}"></script>
+  <script src="{{asset('assets/js/jquery-ui.js')}}"></script>
+  <script src="{{asset('assets/js/autocomplete.js')}}"></script>
+  <script src="{{asset('assets/js/home/scripts.js')}}"></script>
 @endsection
 
 @section('head')
@@ -50,11 +50,11 @@
   <meta name="description"
     content="Большой выбор женской одежды, платья, рубашки, костюмы, верхняя одежда, аксессуары. Доставка.">
   
-  <link rel="stylesheet" href="assets/js/home/styles.css">
-  <link rel="stylesheet" href="assets/css/fast-catalog-item/styles.css">
-  <link rel="stylesheet" href="assets/css/style.css">
-  <link rel="stylesheet" href="assets/css/jquery-ui.css">
-  <link rel="stylesheet" href="assets/css/autocomplete.css">
+  <link rel="stylesheet" href="{{asset('assets/js/home/styles.css')}}">
+  <link rel="stylesheet" href="{{asset('assets/css/fast-catalog-item/styles.css')}}">
+  <link rel="stylesheet" href="{{asset('ssets/css/style.css')}}">
+  <link rel="stylesheet" href="{{asset('assets/css/jquery-ui.css')}}">
+  <link rel="stylesheet" href="{{asset('assets/css/autocomplete.css')}}">
   <style>
     .no-surname-show {
       display: none;

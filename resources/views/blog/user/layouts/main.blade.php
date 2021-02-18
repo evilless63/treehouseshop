@@ -112,9 +112,16 @@
                   </div>
                 </div>
                 <div data-dkey="login"></div>
-                <a class="menu__english-link" href="#">
+                @if(LaravelLocalization::getCurrentLocale() == 'ru')
+                <a class="menu__english-link" href="{{ LaravelLocalization::getLocalizedURL('en') }}">
                   <span>English version</span>
                 </a>
+                @else
+                <a class="menu__english-link" href="{{ LaravelLocalization::getLocalizedURL('ru') }}">
+                  <span>Русская версия</span>
+                </a>
+                @endif
+                
               </div>
             </div>
 
@@ -152,10 +159,18 @@
         <div class="menu__holder">
           <div class="menu__tools">
             <div class="menu__tools-item menu__tools-item--globus">
-              <a href="#" class="menu__tools-button menu__tools-button_globus">
+              @if(LaravelLocalization::getCurrentLocale() == 'ru')
+              <a href="{{ LaravelLocalization::getLocalizedURL('en') }}" class="menu__tools-button menu__tools-button_globus">
                 <span class="menu__tools-button-icon menu__tools-button-icon--globus"></span>
                 <span class="menu__tools-button-text">English</span>
               </a>
+              @else
+              <a href="{{ LaravelLocalization::getLocalizedURL('ru') }}" class="menu__tools-button menu__tools-button_globus">
+                <span class="menu__tools-button-icon menu__tools-button-icon--globus"></span>
+                <span class="menu__tools-button-text">Русский язык</span>
+              </a>
+              @endif
+
             </div>
 
             <div class="menu__tools-item  menu__tools-item--user">
@@ -426,26 +441,7 @@
             </div>
           </div>
 
-          <div class="page__row">
-            <div class="page__middle">
-
-
-              <div class="footer-col">
-                <div class="footer-col__item footer-col-item" data-slug="info">
-                  ИП Богданова Анна Павловна
-                  ИНН 343524756516
-                  ОГРН 317344300031471
-                  ©2021 DomNaDereve. Все права защищены.
-                </div>
-              </div>
-              <div class="footer-col">
-                <div class="footer-col__item footer-col-item" data-slug="info">
-                  Все фотографии работ защищены законодательством. Запрещается любое коммерческое использование, а именно копирование, переработка, распространение (в том числе путем копирования на другие сайты и ресурсы в Интернете) или любое иное использование без предварительного согласия правообладателя и указания их авторства
-                </div>
-              </div>
-            </div>
-          </div>
-
+          
 
 
           <div class="footer-line page__middle">
@@ -453,9 +449,15 @@
               <div class="footer-line-inn__left">
                 <div class="reference-tools">
 
-                  <div class="reference-tools__item"> <a href="#" class="reference-tools__link en-US">
+                  @if(LaravelLocalization::getCurrentLocale() == 'ru')
+                  <div class="reference-tools__item"> <a href="{{ LaravelLocalization::getLocalizedURL('en') }}" class="reference-tools__link en-US">
                       <i class="reference-tools__icon reference-tools__icon_lang"></i>English version </a>
                   </div>
+                  @else
+                  <div class="reference-tools__item"> <a href="{{ LaravelLocalization::getLocalizedURL('ru') }}" class="reference-tools__link en-US">
+                      <i class="reference-tools__icon reference-tools__icon_lang"></i>Русская версия </a>
+                  </div>
+                  @endif
                 </div>
               </div>
               <div class="footer-line-inn__center footer-socials">

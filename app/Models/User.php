@@ -77,7 +77,9 @@
             if ($user) return "user";
         }
 
-
+        public function wishlist_products() {
+            return $this->belongsToMany(Wishlist::class, 'wishlists');
+        }
 
     }
 

@@ -1,7 +1,18 @@
 <?php
 
+
+    
+ Route::group(['prefix' => LaravelLocalization::setLocale()], function() {
+
+    // Import test
+    Route::get('/import-xml-product', 'XMLController@productImport');
+
+    Route::get('/import-xml-category', 'XMLController@categoryImport');
+
+    Route::get('/import-xml-currency', 'XMLController@currencyImport');
+
     Route::get('/', 'UserPublicController@index')
-                ->name('blog.user.index');
+                    ->name('blog.user.index');
 
     Route::get('/catalog/{id?}', 'UserPublicController@catalog')
                 ->name('blog.user.catalog');
@@ -19,16 +30,11 @@
                 ->name('blog.user.blog_cards');
 
     Route::get('/blog-page', 'UserPublicController@blogPage')
-                ->name('blog.user.blog_page');
-
-    Auth::routes();
+                ->name('blog.user.blog_page');  
 
     Route::get('/home', 'HomeController@index')->name('home');
 
-
-
-    /** Admin side */
-    Route::group(['middleware' => ['status','auth']], function () {
+     Route::group(['middleware' => ['status','auth']], function () {
 
         Route::get('/user/cabinet', 'UserPrivateController@profile')
                 ->name('blog.user.profile');
@@ -44,7 +50,12 @@
 
         Route::get('/user/wishlist', 'UserPrivateController@wishlist')
                 ->name('blog.user.wishlist');
+            });
+ 
 
+Auth::routes();
+   /** Admin side */
+   Route::group(['middleware' => ['status','auth']], function () {
         $groupeData = [
             'namespace' => 'Blog\Admin',
             'prefix' => 'admin',
@@ -143,7 +154,7 @@
         });
     });
     //---------
-
+});
 
 //    //User side
 //    $groupeData = [

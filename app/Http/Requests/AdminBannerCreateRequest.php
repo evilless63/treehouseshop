@@ -20,9 +20,9 @@ class AdminProductsCreateRequest extends FormRequest
     {
 
         return [
-            'title' => 'required|min:3|max:100|string',
-            'category_id' => 'integer',
-            'price' => 'required',
+            // 'title' => 'required|min:3|max:100|string',
+            // 'category_id' => 'integer',
+            // 'price' => 'required',
         ];
     }
 
@@ -30,9 +30,9 @@ class AdminProductsCreateRequest extends FormRequest
     public function messages()
     {
         return [
-            'category_id.integer' => 'Категория должна быть Integer',
-            'price.required' => 'Цена обязательна для заполнения',
-            'title.min' => 'Название минимум 3 символа',
+            // 'category_id.integer' => 'Категория должна быть Integer',
+            // 'price.required' => 'Цена обязательна для заполнения',
+            // 'title.min' => 'Название минимум 3 символа',
         ];
     }
 }

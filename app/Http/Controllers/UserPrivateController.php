@@ -15,7 +15,7 @@ class UserPrivateController extends UserBaseController
 
     private $productRepository;
     public $mainmenu_categories;
-    
+    public $wishlist;
 
 
     public function __construct()
@@ -26,8 +26,16 @@ class UserPrivateController extends UserBaseController
         $this->categoryRepository = app(CategoryRepository::class);
         $this->mainmenu_categories = Category::where('in_header', '1')->get();
         $this->categories_menu = $this->categoryRepository->buildMenu(Category::all());
+
+        if(!Auth::guest()) {
+            $this->wishlist = Auth::user()->wishlist_products();
+        } else {
+            $this->wishlist = false;
+        }
+
         View::share('mainmenu_categories', $this->mainmenu_categories);
         View::share('categories_menu', $this->categories_menu);
+        View::share('wishlist', $this->wishlist);
     }
 
     public function profile() {
@@ -51,10 +59,20 @@ class UserPrivateController extends UserBaseController
     }
 
     public function addToWishList($id) {
+        $product = $this->productRepository->getInfoProduct($id);
+        try {
+            Auth::user()->attach($product);
+        } catch (\Exception $e) {
 
+        }
     }
 
     public function removeFromWishList($id) {
+        $product = $this->productRepository->getInfoProduct($id);
+        try {
+            Auth::user()->detach($product);
+        } catch (\Exception $e) {
 
+        }
     }
 }

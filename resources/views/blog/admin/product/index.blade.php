@@ -36,7 +36,7 @@
                             <tr @if($product->status == 0) style="font-weight: bold"; @endif>
                                 <td>{{$product->id}}</td>
                                 <td>{{$product->cat}}</td>
-                                <td>{{$product->title}}</td>
+                                <td>{{$product->localization->title}}</td>
                                 <td>{{$product->price}}</td>
                                 <!--если статут true или 1 то On если false или 0 то Off-->
                                 <td>{{$product->status ? 'On' : 'Off'}}</td>
@@ -45,10 +45,10 @@
                                     <a href="{{route('blog.admin.products.edit',$product->id)}}" title="Редактировать"><i class="fa fa-fw fa-eye"></i></a>
                                     &nbsp;&nbsp;&nbsp;&nbsp;
                                     @if ($product->status == 0)
-                                        <a class="delete" href="{{route('blog.admin.products.returnstatus',$product->id)}}" title="Перевести status = On"><i class="fa fa-fw fa-refresh"></i></a>&nbsp;&nbsp;&nbsp;&nbsp;
+                                        <a class="delete" href="{{route('blog.admin.products.returnstatus',$product->id)}}" title="Отображать на сайте"><i class="fa fa-fw fa-refresh"></i></a>&nbsp;&nbsp;&nbsp;&nbsp;
 
                                     @else
-                                        <a class="delete" href="{{route('blog.admin.products.deletestatus',$product->id)}}" title="Перевести status = Off"><i class="fa fa-fw fa-close"></i></a>&nbsp;&nbsp;&nbsp;&nbsp;
+                                        <a class="delete" href="{{route('blog.admin.products.deletestatus',$product->id)}}" title="Не отображать на сайте"><i class="fa fa-fw fa-close"></i></a>&nbsp;&nbsp;&nbsp;&nbsp;
                                     @endif
 
                                     @if ($product)

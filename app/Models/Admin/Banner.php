@@ -4,8 +4,9 @@ namespace App\Models\Admin;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Admin\LocalizedModel;
 
-class Banner extends Model
+class Banner extends LocalizedModel
 {
     use HasFactory;
 
@@ -14,5 +15,7 @@ class Banner extends Model
         'content',
         'is_active',
         'mobile_media',
+        'link_category',
+        'bannerposition',
     ];
 }

@@ -8,7 +8,7 @@
                     @endif
                 @endisset
             >
-                {!! $delimiter ?? ""!!} {{$category_list->title ?? ""}}
+                {!! $delimiter ?? ""!!} {{$category_list->localization->title ?? ""}}
 
             </option>
 

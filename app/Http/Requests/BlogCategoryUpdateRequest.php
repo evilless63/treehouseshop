@@ -24,10 +24,10 @@ class BlogCategoryUpdateRequest extends FormRequest
     public function rules()
     {
         return [
-            'title' => 'required|min:4|max:200',
-            'slug' => 'max:200',
-            'description' => 'min:3|string|max:500',
-            'parent_id' => 'integer',
+            // 'localization[ru][title]' => 'required|min:4|max:200',
+            // 'localization[ru][slug]' => 'max:200',
+            // 'localization[ru][description]' => 'min:3|string|max:500',
+            // 'localization[ru][parent_id]' => 'integer',
         ];
 
     }
@@ -36,9 +36,9 @@ class BlogCategoryUpdateRequest extends FormRequest
     public function messages()
     {
         return [
-            'title.min' => 'Минимальное имя 4 символа',
-            'description.min' => 'Минимальная длинна описания 5 символов',
-            'description.string' => 'Описание должно быть текстом',
+            // 'localization[ru][title].min' => 'Минимальное имя 4 символа',
+            // 'localization[ru][description].min' => 'Минимальная длинна описания 5 символов',
+            // 'localization[ru][description].string' => 'Описание должно быть текстом',
         ];
     }
 }

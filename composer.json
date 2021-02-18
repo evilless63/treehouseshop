@@ -9,18 +9,19 @@
     "license": "MIT",
     "require": {
         "php": "^7.3|^8.0",
+        "acfbentveld/xml": "^3.0",
         "arrilot/laravel-widgets": "^3.13",
         "fideloper/proxy": "^4.4",
         "fomvasss/laravel-meta-tags": "^3.4",
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.0.1",
-        "lamalama/laravel-wishlist": "^0.2.1",
+        "intervention/image": "^2.5",
         "laravel/framework": "^8.12",
         "laravel/tinker": "^2.5",
         "laravel/ui": "^3.0",
         "lavary/laravel-menu": "^1.7",
+        "mcamara/laravel-localization": "^1.6",
         "phpfastcache/phpfastcache": "^8.0",
-        "raiym/instagram-php-scraper": "^0.11.0",
         "torann/geoip": "^3.0"
     },
     "require-dev": {

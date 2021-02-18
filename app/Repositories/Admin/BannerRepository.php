@@ -76,7 +76,7 @@
             $directory = $this->chooseBannerDirectory($isMobile);
 
             $uploaddir = 'uploads/' . $directory . '/';
-            dd($uploaddir);
+
             $ext = strtolower(preg_replace("#.+\.([a-z]+)$#i", "$1", $name));
             $uploadfile = $uploaddir . $name;
 

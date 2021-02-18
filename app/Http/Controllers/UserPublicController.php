@@ -9,8 +9,8 @@ use View;
 use Auth;
 use App\Repositories\Admin\ProductRepository;
 use App\Repositories\Admin\CategoryRepository;
-
 use Phpfastcache\Helper\Psr16Adapter;
+use App\Models\InstagramPost;
 
 class UserPublicController extends UserBaseController
 {
@@ -19,6 +19,7 @@ class UserPublicController extends UserBaseController
     private $productRepository;
     public $mainmenu_categories;
     public $categories_menu;
+    public $wishlist;
 
     public function __construct()
     {
@@ -27,21 +28,23 @@ class UserPublicController extends UserBaseController
         $this->categoryRepository = app(CategoryRepository::class);
         $this->mainmenu_categories = Category::where('in_header', '1')->get();
         $this->categories_menu = $this->categoryRepository->buildMenu(Category::all());
+
+        if(!Auth::guest()) {
+            $this->wishlist = Auth::user()->wishlist_products();
+        } else {
+            $this->wishlist = false;
+        }
+
         View::share('mainmenu_categories', $this->mainmenu_categories);
+        View::share('wishlist', $this->wishlist);
         View::share('categories_menu', $this->categories_menu);
     }
 
     public function index() {
-
-        // $instagram = \InstagramScraper\Instagram::withCredentials(new \GuzzleHttp\Client(), 'iraemelianova', 'alena210813', new Psr16Adapter('Files'));
-        // $instagram->setUserAgent('User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:78.0) Gecko/20100101 Firefox/78.0');
-        // $instagram->login(false);
-        // $instagram->saveSession();
-        // $instagram_posts = $instagram->getMedias('dom_na_dereve', 10);
-
         $new_products = Product::where('status','1')->where('is_new', '1')->get();
         $bestseller_products = Product::where('status','1')->where('hit', '1')->get();
-        return view('blog.user.public.index', compact('new_products', 'bestseller_products'));
+        $instagram_posts = InstagramPost::all();
+        return view('blog.user.public.index', compact('new_products', 'bestseller_products', 'instagram_posts'));
     }
 
     public function catalog($id = null) {
@@ -56,11 +59,13 @@ class UserPublicController extends UserBaseController
         }
 
         $all_categories = Category::all();
-        if(!$id) {
-            $products_by_category = $this->productRepository->getProductsByCategoryId(1);
-        } else {
-            $products_by_category = $this->productRepository->getProductsByCategoryId($id);
-        }
+        // if(!$id) {
+        //     // $products_by_category = $this->productRepository->getProductsByCategoryId(1);
+        //     $products_by_category = $category->products();
+        // } else {
+        //     // $products_by_category = $this->productRepository->getProductsByCategoryId($id);
+        // }
+        $products_by_category = $category->products()->get();
 
         $recently_viewed_ids = session()->get('recently_viewed_ids');
         if(!$recently_viewed_ids) {

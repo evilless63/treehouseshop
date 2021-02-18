@@ -51,12 +51,13 @@
         }
 
         /** Get Related Products One Product*/
-        public function getRelatedProducts($id)
+        public function getRelatedProducts($id, $lang = 'ru')
         {
             $related_products = $this->startConditions()
+                ->join('product_localizations', 'products.id', '=', 'product_localizations.product_id')
                 ->join('related_products', 'products.id', '=', 'related_products.related_id')
-                ->select('products.title', 'related_products.related_id', 'products.img')
-                ->where('related_products.product_id', $id)
+                ->select('product_localizations.title AS title', 'related_products.related_id', 'products.img')
+                ->where('related_products.product_id', $id)->where('product_localizations.lang', $lang)
                 ->get();
             return $related_products;
         }
@@ -82,12 +83,17 @@
         }
 
         /** INDEX PAGE */
-        public function getAllProducts($perpage)
+        public function getAllProducts($perpage, $lang = 'ru')
         {
             $get_all = $this->startConditions()::withTrashed()
+                ->join('product_localizations', 'product_localizations.product_id', '=', 'products.id')
+                ->where('product_localizations.lang', $lang)
                 ->join('categories', 'products.category_id', '=', 'categories.id')
-                ->select('products.*', 'categories.title AS cat')
-                ->orderBy(\DB::raw('LENGTH(products.title)', "products.title"))
+                ->join('category_localizations', 'category_localizations.category_id', '=', 'categories.id')
+                ->where('category_localizations.lang', $lang)
+                ->select('products.*', 'category_localizations.title AS cat')
+                ->orderBy(\DB::raw('LENGTH(product_localizations.title)', "product_localizations.title"))
+                ->withLocalization('ru')
                 ->limit($perpage)
                 ->paginate($perpage);
 
