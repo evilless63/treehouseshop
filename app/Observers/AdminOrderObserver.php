@@ -2,7 +2,7 @@
 
 namespace App\Observers;
 
-use App\Models\Admin\Order;
+use App\Models\Order;
 use Carbon\Carbon;
 
 class AdminOrderObserver

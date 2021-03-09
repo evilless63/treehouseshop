@@ -34,69 +34,69 @@
                             <div role="tabpanel" class="tab-pane active" id="ru_lang">
                                 <div class="form-group has-feedback">
                                     <label for="title">Наименование товара (RU)</label>
-                                    <input type="text" name="localization[ru][title]" class="form-control" id="title" placeholder="Наименование товара" value="{{$ruLoc->title}}" required>
+                                    <input type="text" name="localization[ru][title]" class="form-control" id="title" placeholder="Наименование товара" value="{{$ruLoc->title ?? ""}}" required>
                                     <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
                                 </div>
 
                                 <div class="form-group">
                                     <label for="keywords">Ключевые слова (RU)</label>
-                                    <input type="text" name="localization[ru][keywords]" class="form-control" id="keywords" placeholder="Ключевые слова" value="{{$ruLoc->keywords}}">
+                                    <input type="text" name="localization[ru][keywords]" class="form-control" id="keywords" placeholder="Ключевые слова" value="{{$ruLoc->keywords ?? ""}}">
                                 </div>
 
                                 <div class="form-group">
                                     <label for="description">Описание (RU)</label>
-                                    <input type="text" name="localization[ru][description]" class="form-control" id="description" placeholder="Описание" value="{{$ruLoc->description}}">
+                                    <input type="text" name="localization[ru][description]" class="form-control" id="description" placeholder="Описание" value="{{$ruLoc->description ?? ""}}">
                                 </div>
 
                                 <div class="form-group has-feedback">
                                     <label for="content">Описание (RU)</label>
-                                    <textarea name="localization[ru][content]" id="editor1" cols="80" rows="10">{{$ruLoc->content}}</textarea>
+                                    <textarea name="localization[ru][content]" id="editor1" cols="80" rows="10">{{$ruLoc->content ?? ""}}</textarea>
                                 </div>
 
                                 <div class="form-group has-feedback">
                                     <label for="details">Детали (RU)</label>
-                                    <textarea name="localization[ru][details]" id="editor2" cols="80" rows="10">{{$ruLoc->details}}</textarea>
+                                    <textarea name="localization[ru][details]" id="editor2" cols="80" rows="10">{{$ruLoc->details ?? ""}}</textarea>
                                 </div>
 
                                 <div class="form-group has-feedback">
                                     <label for="composition_and_care">Состав и уход (RU)</label>
-                                    <textarea name="localization[ru][composition_and_care]" id="editor3" cols="80" rows="10">{{$ruLoc->composition_and_care}}</textarea>
+                                    <textarea name="localization[ru][composition_and_care]" id="editor3" cols="80" rows="10">{{$ruLoc->composition_and_care ?? ""}}</textarea>
                                 </div>
                             </div>
                             <div role="tabpanel" class="tab-pane" id="profile">
                                 <div class="form-group has-feedback">
                                     <label for="title">Наименование товара (EN)</label>
-                                    <input type="text" name="localization[en][title]" class="form-control" id="title" placeholder="Наименование товара" value="{{$enLoc->title}}" required>
+                                    <input type="text" name="localization[en][title]" class="form-control" id="title" placeholder="Наименование товара" value="{{$enLoc->title ?? ""}}" required>
                                     <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
                                 </div>
 
                                 <div class="form-group">
                                     <label for="keywords">Ключевые слова (EN)</label>
-                                    <input type="text" name="localization[en][keywords]" class="form-control" id="keywords" placeholder="Ключевые слова" value="{{$enLoc->keywords}}">
+                                    <input type="text" name="localization[en][keywords]" class="form-control" id="keywords" placeholder="Ключевые слова" value="{{$enLoc->keywords ?? ""}}">
                                 </div>
 
                                 <div class="form-group">
                                     <label for="description">Описание (EN)</label>
-                                    <input type="text" name="localization[en][description]" class="form-control" id="description" placeholder="Описание" value="{{$enLoc->description}}">
+                                    <input type="text" name="localization[en][description]" class="form-control" id="description" placeholder="Описание" value="{{$enLoc->description ?? ""}}">
                                 </div>
 
                                 <div class="form-group has-feedback">
                                     <label for="content">Описание (EN)</label>
-                                    <textarea name="localization[en][content]" id="editor4" cols="80" rows="10">{{$enLoc->content}}</textarea>
+                                    <textarea name="localization[en][content]" id="editor4" cols="80" rows="10">{{$enLoc->content ?? ""}}</textarea>
                                 </div>
 
                                 <div class="form-group has-feedback">
                                     <label for="details">Детали (EN)</label>
-                                    <textarea name="localization[en][details]" id="editor5" cols="80" rows="10">{{$enLoc->details}}</textarea>
+                                    <textarea name="localization[en][details]" id="editor5" cols="80" rows="10">{{$enLoc->details ?? ""}}</textarea>
                                 </div>
 
                                 <div class="form-group has-feedback">
                                     <label for="composition_and_care">Состав и уход (EN)</label>
-                                    <textarea name="localization[en][composition_and_care]" id="editor6" cols="80" rows="10">{{$enLoc->composition_and_care}}</textarea>
+                                    <textarea name="localization[en][composition_and_care]" id="editor6" cols="80" rows="10">{{$enLoc->composition_and_care ?? ""}}</textarea>
                                 </div>
                             </div>
                         </div>
-            
+
 
                         <div class="form-group">
                             <label for="title">Категория товара</label>

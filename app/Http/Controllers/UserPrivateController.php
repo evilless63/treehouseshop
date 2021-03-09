@@ -3,12 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Admin\Product;
-use App\Models\Admin\Category;
+use App\Models\Product;
+use App\Models\Category;
 use Auth;
 use View;
-use App\Repositories\Admin\ProductRepository;
-use App\Repositories\Admin\CategoryRepository;
+use App\Repositories\ProductRepository;
+use App\Repositories\CategoryRepository;
 
 class UserPrivateController extends UserBaseController
 {

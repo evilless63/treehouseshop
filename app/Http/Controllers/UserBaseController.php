@@ -5,7 +5,7 @@
     use App\Models\User;
     use Auth;
     use Illuminate\Http\Request;
-    use App\Http\Controllers\Blog\BaseController as MainBaseController;
+    use App\Http\Controllers\BaseController as MainBaseController;
     use MetaTag;
 
 

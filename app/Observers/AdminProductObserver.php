@@ -2,7 +2,7 @@
 
 namespace App\Observers;
 
-use App\Models\Admin\Product;
+use App\Models\Product;
 use Illuminate\Support\Carbon;
 use Symfony\Component\Console\Input\Input;
 

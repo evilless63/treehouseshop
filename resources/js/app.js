@@ -88,6 +88,9 @@ $('.sidebar-menu a').each(function () {
         CKEDITOR.replace('editor4');
         CKEDITOR.replace('editor5');
         CKEDITOR.replace('editor6');
+        CKEDITOR.replace('editor_post_ru');
+        CKEDITOR.replace('editor_post_en');
+
     }
 
     var id = $('div.hidden').data('name');
@@ -99,6 +102,8 @@ $('.sidebar-menu a').each(function () {
         CKEDITOR.replace('editor4');
         CKEDITOR.replace('editor5');
         CKEDITOR.replace('editor6');
+        CKEDITOR.replace('editor_post_ru');
+        CKEDITOR.replace('editor_post_en');
     }
 
 /** ----------- */

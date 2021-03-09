@@ -7,11 +7,11 @@ use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
 
-use App\Models\Admin\Product;
-use App\Models\Admin\Category;
+use App\Models\Product;
+use App\Models\Category;
 use View;
-use App\Repositories\Admin\ProductRepository;
-use App\Repositories\Admin\CategoryRepository;
+use App\Repositories\ProductRepository;
+use App\Repositories\CategoryRepository;
 
 
 class LoginController extends Controller

@@ -50,6 +50,8 @@ $( '#editor3' ).ckeditor();
 $( '#editor4' ).ckeditor();
 $( '#editor5' ).ckeditor();
 $( '#editor6' ).ckeditor();
+$( '#editor_post_ru' ).ckeditor();
+$( '#editor_post_en' ).ckeditor();
 
 /** ----------- */
 

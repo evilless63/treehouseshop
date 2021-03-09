@@ -47,7 +47,7 @@
                             <div role="tabpanel" class="tab-pane active" id="ru_lang">
                                 <div class="form-group has-feedback">
                                     <label for="title">Наименование категории (RU)</label>
-                                    <input type="text" name="localization[ru][title]" class="form-control" id="ru_title" placeholder="Наименование категории" required value="{{old('title', $ruLoc->title)}}">
+                                    <input type="text" name="localization[ru][title]" class="form-control" id="ru_title" placeholder="Наименование категории" required value="{{old('title', $ruLoc->title ?? "")}}">
                                     <!-- галочки при валидации справа -это
                   <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
                   -->
@@ -55,18 +55,18 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="keywords">Ключевые слова (RU)</label>
-                                    <input type="text" name="localization[ru][keywords]" class="form-control" id="keywords" placeholder="Ключевые слова" value="{{old('keywords', $ruLoc->keywords)}}" required>
+                                    <input type="text" name="localization[ru][keywords]" class="form-control" id="keywords" placeholder="Ключевые слова" value="{{old('keywords', $ruLoc->keywords ?? "")}}" required>
 
                                 </div>
                                 <div class="form-group">
                                     <label for="description">Описание (RU)</label>
-                                    <input type="text" name="localization[ru][description]" class="form-control" id="description" placeholder="Описание" value="{{old('description', $ruLoc->description)}}" required>
+                                    <input type="text" name="localization[ru][description]" class="form-control" id="description" placeholder="Описание" value="{{old('description', $ruLoc->description ?? "")}}" required>
                                 </div>
                             </div>
                             <div role="tabpanel" class="tab-pane" id="profile">
                                 <div class="form-group has-feedback">
                                     <label for="title">Наименование категории (EN)</label>
-                                    <input type="text" name="localization[en][title]" class="form-control" id="title" placeholder="Наименование категории" required value="{{old('title', $enLoc->title)}}">
+                                    <input type="text" name="localization[en][title]" class="form-control" id="title" placeholder="Наименование категории"  value="{{old('title', $enLoc->title ?? "")}}">
                                     <!-- галочки при валидации справа -это
                   <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
                   -->
@@ -74,12 +74,12 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="keywords">Ключевые слова (EN)</label>
-                                    <input type="text" name="localization[en][keywords]" class="form-control" id="keywords" placeholder="Ключевые слова" value="{{old('keywords', $enLoc->keywords)}}" required>
+                                    <input type="text" name="localization[en][keywords]" class="form-control" id="keywords" placeholder="Ключевые слова" value="{{old('keywords', $enLoc->keywords ?? "")}}">
 
                                 </div>
                                 <div class="form-group">
                                     <label for="description">Описание (EN)</label>
-                                    <input type="text" name="localization[en][description]" class="form-control" id="description" placeholder="Описание" value="{{old('description', $enLoc->description)}}" required>
+                                    <input type="text" name="localization[en][description]" class="form-control" id="description" placeholder="Описание" value="{{old('description', $enLoc->description ?? "")}}">
                                 </div>
                             </div>
                         </div>

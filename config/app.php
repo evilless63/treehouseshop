@@ -39,7 +39,7 @@ return [
     |
     */
 
-    'debug' => env('APP_DEBUG', false),
+    'debug' => env('APP_DEBUG', true),
 
     /*
     |--------------------------------------------------------------------------
@@ -169,7 +169,9 @@ return [
         Illuminate\Foundation\Providers\ArtisanServiceProvider::class,
         Lavary\Menu\ServiceProvider::class,
         Torann\GeoIP\GeoIPServiceProvider::class,
-
+        Mews\Captcha\CaptchaServiceProvider::class,
+        ElForastero\Transliterate\ServiceProvider::class,
+        Barryvdh\Debugbar\ServiceProvider::class,
 
         /*
          * Package Service Providers...
@@ -238,7 +240,9 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'Menu'      => Lavary\Menu\Facade::class,
         'GeoIP' => \Torann\GeoIP\Facades\GeoIP::class,
-
+        'Captcha' => Mews\Captcha\Facades\Captcha::class,
+        'Transliterate' => ElForastero\Transliterate\Facade::class,
+        'Debugbar' => Barryvdh\Debugbar\Facade::class,
     ],
 
 ];

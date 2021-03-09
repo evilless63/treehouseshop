@@ -1,8 +1,8 @@
 <?php
 
 
-    
- Route::group(['prefix' => LaravelLocalization::setLocale()], function() {
+
+Route::group(['prefix' => LaravelLocalization::setLocale()], function() {
 
     // Import test
     Route::get('/import-xml-product', 'XMLController@productImport');
@@ -11,6 +11,7 @@
 
     Route::get('/import-xml-currency', 'XMLController@currencyImport');
 
+    //User
     Route::get('/', 'UserPublicController@index')
                     ->name('blog.user.index');
 
@@ -19,26 +20,26 @@
 
     Route::get('/login', 'UserPublicController@login')
                 ->name('blog.user.login');
-    
+
     Route::get('/product/{id}', 'UserPublicController@product')
                 ->name('blog.user.product');
-    
+
     Route::get('/cart', 'UserPublicController@cart')
                 ->name('blog.user.cart');
-    
+
     Route::get('/blog', 'UserPublicController@blogCards')
                 ->name('blog.user.blog_cards');
 
     Route::get('/blog-page', 'UserPublicController@blogPage')
-                ->name('blog.user.blog_page');  
+                ->name('blog.user.blog_page');
 
     Route::get('/home', 'HomeController@index')->name('home');
 
-     Route::group(['middleware' => ['status','auth']], function () {
+    Route::group(['middleware' => ['status','auth']], function () {
 
         Route::get('/user/cabinet', 'UserPrivateController@profile')
                 ->name('blog.user.profile');
-        
+
         Route::get('/user/edit', 'UserPrivateController@editProfile')
                 ->name('blog.user.edit_profile');
 
@@ -50,14 +51,25 @@
 
         Route::get('/user/wishlist', 'UserPrivateController@wishlist')
                 ->name('blog.user.wishlist');
-            });
- 
+    });
 
-Auth::routes();
-   /** Admin side */
-   Route::group(['middleware' => ['status','auth']], function () {
+    //1c
+    Route::any('/api/v1/post-cats', 'App\Http\Controllers\ones\ServiceController@postRequestCategoryFrom1c');
+    Route::any('/api/v1/post-prods', 'App\Http\Controllers\ones\ServiceController@postRequestProductFrom1c');
+
+    Route::get('/refereshcapcha', 'App\Http\Controllers\ones\HelperController@refereshCapcha');
+    Route::get('/getdemodata', 'App\Http\Controllers\ones\DemoController@getDemoData');
+    Route::get('/register', 'App\Http\Controllers\ones\DemoController@registerNewCounteragent');
+    Route::get('/policy', 'App\Http\Controllers\ones\DemoController@policy')->name('policy');
+
+    Route::post('/make-order', 'App\Http\Controllers\ones\DemoController@postOrderTo1c')->name('make-order');
+    Route::post('/register-counteragent', 'App\Http\Controllers\ones\DemoController@postCounteragentRegisterTo1c')->name('register-counteragent');
+
+    Auth::routes();
+    /** Admin side */
+    Route::group(['middleware' => ['status','auth']], function () {
         $groupeData = [
-            'namespace' => 'Blog\Admin',
+            'namespace' => 'Admin',
             'prefix' => 'admin',
         ];
         Route::group($groupeData, function () {
@@ -149,11 +161,20 @@ Auth::routes();
 
             Route::resource('posts', 'PostController')
                 ->names('blog.admin.posts');
+            Route::get('/posts/return-status/{id}','PostController@returnStatus')
+                ->name('blog.admin.posts.returnstatus');
+            Route::get('/posts/delete-status/{id}','PostController@deleteStatus')
+                ->name('blog.admin.posts.deletestatus');
+            Route::get('/posts/delete-product/{id}', 'PostController@deleteProduct')
+                ->name('blog.admin.posts.deleteproduct');
 
-
+            Route::resource('colors', 'ColorController')
+                ->names('blog.admin.colors');
+            Route::resource('sizes', 'SizeController')
+                ->names('blog.admin.sizes');
         });
     });
-    //---------
+//---------
 });
 
 //    //User side

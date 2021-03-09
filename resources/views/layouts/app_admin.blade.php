@@ -5,9 +5,9 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     {{--<base href="/adminlte/">--}}
-    <link rel="shortcut icon" href="" type="image/png" />
+    <link rel="shortcut icon" href="" type="image/png"/>
     <title>{!! MetaTag::tag('title') !!}</title>
-<!-- Tell the browser to be responsive to screen width -->
+    <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.7 -->
     <link rel="stylesheet" href="{{asset('adminlte/bower_components/bootstrap/dist/css/bootstrap.min.css')}}">
@@ -27,10 +27,6 @@
     <link rel="stylesheet" href="{{asset('css/my.css')}}">
 
 
-
-
-
-
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -39,13 +35,14 @@
     <![endif]-->
 
     <!-- Google Font -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 
-<style>
-    .wrapper{
-        overflow:hidden;
-    }
-</style>
+    <style>
+        .wrapper {
+            overflow: hidden;
+        }
+    </style>
 
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
@@ -71,13 +68,15 @@
 
                     <li class="dropdown user user-menu">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            <img src="{{asset('adminlte/dist/img/user2-160x160.jpg')}}" class="user-image" alt="User Image">
+                            <img src="{{asset('adminlte/dist/img/user2-160x160.jpg')}}" class="user-image"
+                                 alt="User Image">
                             <span class="hidden-xs">{{ucfirst (Auth::user()->name) }} </span>
                         </a>
                         <ul class="dropdown-menu">
                             <!-- User image -->
                             <li class="user-header">
-                                <img src="{{asset('adminlte/dist/img/user2-160x160.jpg')}}" class="img-circle" alt="User Image">
+                                <img src="{{asset('adminlte/dist/img/user2-160x160.jpg')}}" class="img-circle"
+                                     alt="User Image">
                                 <p>
                                     {{ ucfirst(Auth::user()->name) }}
                                 </p>
@@ -86,13 +85,15 @@
                             <!-- Menu Footer-->
                             <li class="user-footer">
                                 <div class="pull-left">
-                                    <a href="{{route('blog.admin.users.edit',Auth::user()->id)}}" class="btn btn-default btn-flat">Профиль</a>
+                                    <a href="{{route('blog.admin.users.edit',Auth::user()->id)}}"
+                                       class="btn btn-default btn-flat">Профиль</a>
                                 </div>
                                 <div class="pull-right">
                                     <a href="{{ route('logout') }}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();"
                                        class="btn btn-default btn-flat">Выход</a>
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                          style="display: none;">
                                         {{ csrf_field() }}
                                     </form>
 
@@ -126,8 +127,10 @@
                 <li class="header">Меню</li>
                 <!-- Optionally, you can add icons to the links -->
                 <li><a href="/"><i class="fa fa-home"></i> <span>В магазин</span></a></li>
-                <li><a href="{{route('blog.admin.index.index')}}"><i class="fa fa-user"></i> <span>Главная админки</span></a></li>
-                <li><a href="{{route('blog.admin.orders.index')}}"><i class="fa fa-shopping-cart"></i> <span>Заказы</span></a></li>
+                <li><a href="{{route('blog.admin.index.index')}}"><i class="fa fa-user"></i>
+                        <span>Главная админки</span></a></li>
+                <li><a href="{{route('blog.admin.orders.index')}}"><i class="fa fa-shopping-cart"></i>
+                        <span>Заказы</span></a></li>
 
                 <li class="treeview">
                     <a href="#"><i class="fa fa-navicon"></i> <span>Баннеры</span>
@@ -164,7 +167,11 @@
                         <li><a href="{{route('blog.admin.products.create')}}">Добавить товар</a></li>
                     </ul>
                 </li>
-                <li><a href="{{route('blog.admin.cache')}}"><i class="fa fa-database"></i> <span>Кэширование</span></a></li>
+                <li><a href="{{route('blog.admin.colors.index')}}"><i class="fa fa-database"></i> <span>Цвета</span></a>
+                <li><a href="{{route('blog.admin.sizes.index')}}"><i class="fa fa-database"></i> <span>Размеры</span></a>
+                </li>
+                <li><a href="{{route('blog.admin.cache')}}"><i class="fa fa-database"></i> <span>Кэширование</span></a>
+                </li>
                 <li class="treeview">
                     <a href="#"><i class="fa fa-users"></i> <span>Пользователи</span>
                         <span class="pull-right-container">
@@ -198,19 +205,31 @@
                         <li><a href="{{url('admin/filter/attributes-filter')}}">Фильтры</a></li>
                     </ul>
                 </li>
+                <li class="treeview">
+                    <a href="#"><i class="fa fa-cubes"></i> <span>Статьи</span>
+                        <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+              </span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li><a href="{{route('blog.admin.posts.index')}}">Список статей</a></li>
+                        <li><a href="{{route('blog.admin.posts.create')}}">Добавить статью</a></li>
+                    </ul>
+                </li>
             </ul>
             <br><br>
             <!-- search form -->
 
-            <form action="{{url('/admin/search/result')}}" method="get" autocomplete="off"  style="position: absolute;">
+            <form action="{{url('/admin/search/result')}}" method="get" autocomplete="off" style="position: absolute;">
                 <div class="input-group">
-                    <input id="search" name="search" type="text" class="form-control" placeholder="Живой поиск...." style="color: whitesmoke; background-color:#20262a; border: none;">
+                    <input id="search" name="search" type="text" class="form-control" placeholder="Живой поиск...."
+                           style="color: whitesmoke; background-color:#20262a; border: none;">
                     <span class="input-group-btn">
-                        <button type="submit" value="" class="btn btn-flat" style="background-color: #ebeff4;"><i class="fa fa-search"></i></button>
+                        <button type="submit" value="" class="btn btn-flat" style="background-color: #ebeff4;"><i
+                                class="fa fa-search"></i></button>
                     </span>
                 </div>
             </form>
-
 
 
             <!-- /.search form -->
@@ -235,15 +254,14 @@
 <!-- ./wrapper -->
 
 
-
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.1/bootstrap3-typeahead.min.js"></script>
 
 <script type="text/javascript">
     var route = "{{ url('/admin/autocomplete') }}";
     $('#search').typeahead({
-        source:  function (term, process) {
-            return $.get(route, { term: term }, function (data) {
+        source: function (term, process) {
+            return $.get(route, {term: term}, function (data) {
                 return process(data);
             });
         }

@@ -27,5 +27,8 @@
     @if (isset($currency))
         <li><a href="{{url('/admin/currency/index')}}"><i></i>{{$currency}}</a></li>
     @endif
+    @if (isset($post))
+        <li><a href="{{url('/admin/posts/index')}}"><i></i>{{$post}}</a></li>
+    @endif
     <li><i class="active"></i>{{$active}}</li>
 </ol>

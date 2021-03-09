@@ -3,12 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Admin\Product;
-use App\Models\Admin\Category;
+use App\Models\Product;
+use App\Models\Category;
 use View;
 use Auth;
-use App\Repositories\Admin\ProductRepository;
-use App\Repositories\Admin\CategoryRepository;
+use App\Repositories\ProductRepository;
+use App\Repositories\CategoryRepository;
 use Phpfastcache\Helper\Psr16Adapter;
 use App\Models\InstagramPost;
 
@@ -69,11 +69,11 @@ class UserPublicController extends UserBaseController
 
         $recently_viewed_ids = session()->get('recently_viewed_ids');
         if(!$recently_viewed_ids) {
-            $recently_viewed_ids = [];           
-        } 
+            $recently_viewed_ids = [];
+        }
 
         array_push($recently_viewed_ids, $id);
-        session()->put('recently_viewed_ids', $recently_viewed_ids);     
+        session()->put('recently_viewed_ids', $recently_viewed_ids);
         $recently_viewed_products = $this->productRepository->getProductsByIds($recently_viewed_ids);
 
         return view('blog.user.public.catalog', compact('all_categories', 'wishlist', 'products_by_category', 'recently_viewed_products', 'category_name'));
@@ -95,14 +95,14 @@ class UserPublicController extends UserBaseController
         $related_products = $this->productRepository->getRelatedProducts($id);
         $images = $this->productRepository->getGallery($id);
         $product = Product::find($id);
-                
+
         $recently_viewed_ids = session()->get('recently_viewed_ids');
         if(!$recently_viewed_ids) {
-            $recently_viewed_ids = [];           
-        } 
+            $recently_viewed_ids = [];
+        }
 
         array_push($recently_viewed_ids, $id);
-        session()->put('recently_viewed_ids', $recently_viewed_ids);     
+        session()->put('recently_viewed_ids', $recently_viewed_ids);
         $recently_viewed_products = $this->productRepository->getProductsByIds($recently_viewed_ids);
 
         return view('blog.user.public.product', compact('wishlist', 'related_products', 'images', 'product', 'recently_viewed_products'));

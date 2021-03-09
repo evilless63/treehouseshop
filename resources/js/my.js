@@ -53,6 +53,8 @@ if (window.location.pathname === create) {
     CKEDITOR.replace('editor4');
     CKEDITOR.replace('editor5');
     CKEDITOR.replace('editor6');
+    CKEDITOR.replace('editor_post_ru');
+    CKEDITOR.replace('editor_post_en');
 
 }
 
@@ -65,6 +67,8 @@ if (window.location.pathname === edit) {
     CKEDITOR.replace('editor4');
     CKEDITOR.replace('editor5');
     CKEDITOR.replace('editor6');
+    CKEDITOR.replace('editor_post_ru');
+    CKEDITOR.replace('editor_post_en');
 }
 
 /** ----------- */
