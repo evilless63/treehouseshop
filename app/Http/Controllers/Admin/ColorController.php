@@ -6,6 +6,8 @@ use App\Http\Requests\AdminPostsCreateRequest;
 use App\Models\Color;
 use Illuminate\Http\Request;
 use MetaTag;
+use ElForastero\Transliterate\Transliterator;
+use ElForastero\Transliterate\Map;
 
 class ColorController extends AdminBaseController
 {
@@ -39,20 +41,37 @@ class ColorController extends AdminBaseController
      * @param  AdminPostsCreateRequest $request
      * @return void
      */
-    public function store(AdminPostsCreateRequest $request)
-    {
-        $data = $request->input();
-        $item = new Color();
-        $savedItem = $item->fill($data)->save();
+    public function store(AdminPostsCreateRequest $request) {
 
-        if($savedItem) {
-            foreach($request->input('localization', []) as $k => $i) {
-                /** @var PostLocalization $locale */
-                $locale = $item->localizations()
-                    ->create($i + ['lang' => $k]);
+    }
+    public function storeFrom1c(AdminPostsCreateRequest $request)
+    {
+        $stack = $request->toArray();
+        $transliterator = new Transliterator(Map::LANG_RU, Map::DEFAULT);
+        foreach($stack as $data) {
+            $dataArr = [];
+            if($data == "") {
+                $data = "Без цвета";
+            }
+            $dataArr['name'] = $data;
+            $dataArr['alias'] = strtolower($transliterator->slugify(preg_replace('/^[A-ZА-Яa-zа-я0-9_]$/u', '', $data)));
+            if(Color::where('alias', $dataArr['alias'])->count() == 0) {
+                $item = new Color();
+                $savedItem = $item->fill($dataArr)->save();
+        
+                if($savedItem) {
+                    // foreach($request->input('localization', []) as $k => $i) {
+                    //     /** @var PostLocalization $locale */
+                    //     $locale = $item->localizations()
+                    //         ->create($i + ['lang' => $k]);
+                    // }
+                    $dataLocalize = [];
+                    $dataLocalize['lang'] = 'ru';
+                    $dataLocalize['title'] = $dataArr['name'];
+                    $locale = $item->localizations()->create($dataLocalize);
+                }  
             }
         }
-
     }
 
     /**
@@ -115,6 +134,10 @@ class ColorController extends AdminBaseController
                 ->withErrors(['msg' => 'Ошибка сохранения!'])
                 ->withInput();
         }
+    }
+
+    public function show() {
+
     }
 
 

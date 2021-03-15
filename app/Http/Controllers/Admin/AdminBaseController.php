@@ -18,8 +18,8 @@
 
         public function __construct()
         {
-            $this->middleware('auth');
-            $this->middleware('status');
+            // $this->middleware('auth');
+            // $this->middleware('status');
 
             MetaTag::setTags([
                 'title' => 'Админ панель',

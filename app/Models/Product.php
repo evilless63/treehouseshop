@@ -14,17 +14,11 @@ class Product extends LocalizedModel
     use SoftDeletes;
 
     protected $fillable = [
+        'code',
         'category_id',
         'brand_id',
-        'title',
         'alias',
-        'content',
-        'price',
-        'old_price',
         'status',
-        'keywords',
-        'description',
-        'img',
         'hit',
         'weight',
         'dimension_x',
@@ -32,8 +26,7 @@ class Product extends LocalizedModel
         'dimension_z',
         'sku',
     ];
-
-
+    
     public function categories() {
         return $this->belongsToMany(Category::class, 'categories_products', 'category_id', 'product_id');
     }

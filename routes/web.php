@@ -53,21 +53,22 @@ Route::group(['prefix' => LaravelLocalization::setLocale()], function() {
                 ->name('blog.user.wishlist');
     });
 
-    //1c
-    Route::any('/api/v1/post-cats', 'App\Http\Controllers\ones\ServiceController@postRequestCategoryFrom1c');
-    Route::any('/api/v1/post-prods', 'App\Http\Controllers\ones\ServiceController@postRequestProductFrom1c');
+    // //1c
+    // Route::any('/api/v1/post-cats', 'App\Http\Controllers\ones\ServiceController@postRequestCategoryFrom1c');
+    // Route::any('/api/v1/post-prods', 'App\Http\Controllers\ones\ServiceController@postRequestProductFrom1c');
 
-    Route::get('/refereshcapcha', 'App\Http\Controllers\ones\HelperController@refereshCapcha');
-    Route::get('/getdemodata', 'App\Http\Controllers\ones\DemoController@getDemoData');
-    Route::get('/register', 'App\Http\Controllers\ones\DemoController@registerNewCounteragent');
-    Route::get('/policy', 'App\Http\Controllers\ones\DemoController@policy')->name('policy');
+    // Route::get('/refereshcapcha', 'App\Http\Controllers\ones\HelperController@refereshCapcha');
+    // Route::get('/getdemodata', 'App\Http\Controllers\ones\DemoController@getDemoData');
+    // Route::get('/register', 'App\Http\Controllers\ones\DemoController@registerNewCounteragent');
+    // Route::get('/policy', 'App\Http\Controllers\ones\DemoController@policy')->name('policy');
 
-    Route::post('/make-order', 'App\Http\Controllers\ones\DemoController@postOrderTo1c')->name('make-order');
-    Route::post('/register-counteragent', 'App\Http\Controllers\ones\DemoController@postCounteragentRegisterTo1c')->name('register-counteragent');
+    // Route::post('/make-order', 'App\Http\Controllers\ones\DemoController@postOrderTo1c')->name('make-order');
+    // Route::post('/register-counteragent', 'App\Http\Controllers\ones\DemoController@postCounteragentRegisterTo1c')->name('register-counteragent');
 
     Auth::routes();
     /** Admin side */
-    Route::group(['middleware' => ['status','auth']], function () {
+    // Route::group(['middleware' => ['status','auth']], function () {
+        
         $groupeData = [
             'namespace' => 'Admin',
             'prefix' => 'admin',
@@ -144,7 +145,9 @@ Route::group(['prefix' => LaravelLocalization::setLocale()], function() {
 
             Route::resource('products','ProductController')
                 ->names('blog.admin.products');
-
+            Route::post('/products/post-1c', 'ProductController@storeFrom1c');
+            Route::post('/products/post-stock-price-1c', 'ProductController@makeProductsTableWithPriceAndStock');
+            
 
             Route::resource('banners','BannerController')
                 ->names('blog.admin.banners');
@@ -167,13 +170,14 @@ Route::group(['prefix' => LaravelLocalization::setLocale()], function() {
                 ->name('blog.admin.posts.deletestatus');
             Route::get('/posts/delete-product/{id}', 'PostController@deleteProduct')
                 ->name('blog.admin.posts.deleteproduct');
-
             Route::resource('colors', 'ColorController')
                 ->names('blog.admin.colors');
+            Route::post('/colors/post-1c', 'ColorController@storeFrom1c');
             Route::resource('sizes', 'SizeController')
                 ->names('blog.admin.sizes');
+            Route::post('/sizes/post-1c', 'SizeController@storeFrom1c');
         });
-    });
+    // });
 //---------
 });
 

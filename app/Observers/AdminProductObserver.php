@@ -13,7 +13,7 @@ class AdminProductObserver
 
     public function creating(Product $product)
     {
-        $this->setAlias($product);
+        // $this->setAlias($product);
     }
 
 

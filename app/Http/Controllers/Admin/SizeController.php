@@ -6,6 +6,8 @@ use App\Http\Requests\AdminPostsCreateRequest;
 use App\Models\Size;
 use Illuminate\Http\Request;
 use MetaTag;
+use ElForastero\Transliterate\Transliterator;
+use ElForastero\Transliterate\Map;
 
 class SizeController extends AdminBaseController
 {
@@ -41,20 +43,34 @@ class SizeController extends AdminBaseController
      */
     public function store(AdminPostsCreateRequest $request)
     {
-        $data = $request->input();
-        $item = new Size();
-        $savedItem = $item->fill($data)->save();
-
-        if($savedItem) {
-            foreach($request->input('localization', []) as $k => $i) {
-                /** @var PostLocalization $locale */
-                $locale = $item->localizations()
-                    ->create($i + ['lang' => $k]);
-            }
-        }
 
     }
 
+    public function storeFrom1c(AdminPostsCreateRequest $request)
+    {
+        $stack = $request->toArray();
+        $transliterator = new Transliterator(Map::LANG_RU, Map::DEFAULT);
+        foreach($stack as $data) {
+
+            $dataArr = [];
+            if($data == "") {
+                $data = "Без размера";
+            }
+            $dataArr['name'] = $data;
+            $dataArr['alias'] = strtolower($transliterator->slugify(preg_replace('/^[A-ZА-Яa-zа-я0-9_]$/u', '', $data)));
+            if(Size::where('alias', $dataArr['alias'])->count() == 0) {
+                $item = new Size();
+                $savedItem = $item->fill($dataArr)->save();
+        
+                if($savedItem) {
+                    $dataLocalize = [];
+                    $dataLocalize['lang'] = 'ru';
+                    $dataLocalize['title'] = $dataArr['name'];
+                    $locale = $item->localizations()->create($dataLocalize);
+                }  
+            }
+        }    
+    }
     /**
      * Show the form for editing the specified resource.
      *

@@ -11,6 +11,11 @@ use Illuminate\Http\Request;
 use MetaTag;
 use Illuminate\Support\Facades\File;
 use App\SBlog\Core\BlogApp;
+use ElForastero\Transliterate\Transliterator;
+use ElForastero\Transliterate\Map;
+use App\Models\Color;
+use App\Models\Size;
+use App\Models\PriceAndStock;
 
 
 class ProductController extends AdminBaseController
@@ -361,6 +366,83 @@ class ProductController extends AdminBaseController
         //
     }
 
+    public function storeFrom1c(Request $request)
+    {
+        
+        $stack = $request->toArray();
+        $transliterator = new Transliterator(Map::LANG_RU, Map::DEFAULT);
+        foreach($stack as $data) {
+            // return($transliterator->slugify(preg_replace('/[^a-zA-ZА-Яа-я0-9\s]/u', '', $data['title'])));
+            // return(preg_replace('/[^a-zA-ZА-Яа-я0-9\s]/u', '', $data['title']));
+            $data['alias'] = strtolower($transliterator->slugify(preg_replace('/[^a-zA-ZА-Яа-я0-9\s]/u', '', $data['title'])));
+            $item = Product::where('code', $data['code'])->first();
+            if($item == null) {
+                $item = new Product();
+                $item->code = $data['code'];
+                $item->sku = $data['sku'];
+                $item->alias = $data['alias'];
+                $item->weight = $data['weight'];
+                $item->dimension_x = $data['dimension_x']; 
+                $item->dimension_y = $data['dimension_y']; 
+                $item->dimension_z = $data['dimension_z']; 
+                $savedItem = $item->save();
+        
+                if($savedItem) {
+                    $dataLocalize = [];
+                    $dataLocalize['lang'] = 'ru';
+                    $dataLocalize['title'] = $data['title'];
+                    $dataLocalize['unit'] = $data['unit'];
+                    $locale = $item->localizations()->create($dataLocalize);
+                }  
+            } else {
+                $item->sku = $data['sku'];
+                $item->weight = $data['weight'];
+                $item->dimension_x = $data['dimension_x']; 
+                $item->dimension_y = $data['dimension_y']; 
+                $item->dimension_z = $data['dimension_z']; 
+                $savedItem = $item->update();
+            }
+        }
+    }    
+
+    public function makeProductsTableWithPriceAndStock(Request $request) {
+        $stack = $request->toArray();
+        $transliterator = new Transliterator(Map::LANG_RU, Map::DEFAULT);
+        foreach($stack as $data) {
+
+            if($data['color'] == "") {
+                $data['color'] = "Без цвета";
+            }
+
+            if($data['size'] == "") {
+                $data['size'] = "Без размера";
+            }
+
+            $itemData = [];
+            $itemData['product_id'] = Product::where('code', $data['code'])->first()->id;
+            $itemData['color_id'] = Color::where('alias', strtolower($transliterator->slugify(preg_replace('/^[A-ZА-Яa-zа-я0-9_]$/u', '', $data['color']))))->first()->id;
+            $itemData['size_id'] = Size::where('alias', strtolower($transliterator->slugify(preg_replace('/^[A-ZА-Яa-zа-я0-9_]$/u', '', $data['size']))))->first()->id;
+            $itemData['stock'] = $data['stock'];
+            $itemData['price'] = $data['price'];
+
+            if($data['stock'] <= 0) {
+                $itemData['is_active'] = 0;
+            }
+            
+            $item = PriceAndStock::where('product_id', $itemData['product_id'])
+            ->where('color_id', $itemData['color_id'])
+            ->where('size_id', $itemData['size_id'])
+            ->first();
+            if($item == null) {
+                $item = new PriceAndStock();
+                $item->create($itemData);
+            } else {
+                $item->update($itemData);
+            }
+        }
+    }
+
+    
     // public function postRequestCategoryFrom1c(Request $request) {
     //     //Обработка категорий
 

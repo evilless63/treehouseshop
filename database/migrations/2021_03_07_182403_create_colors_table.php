@@ -18,9 +18,9 @@ class CreateColorsTable extends Migration
             $table->timestamps();
             $table->string('alias',255)->unique();
             $table->string('hex')->default('ffffff');
-            $table->string('img',255)->nullable();
-            $table->enum('hit',['0','1'])->default(0)->index();
-            $table->enum('is_new',['0','1'])->default(0)->index();
+            // $table->string('img',255)->nullable();
+            // $table->enum('hit',['0','1'])->default(0)->index();
+            // $table->enum('is_new',['0','1'])->default(0)->index();
         });
 
         Schema::create('color_localizations', function (Blueprint $table) {

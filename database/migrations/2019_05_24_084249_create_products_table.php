@@ -17,6 +17,7 @@ class CreateProductsTable extends Migration
             $table->engine = 'InnoDB';
 
             $table->bigIncrements('id')->unsigned();
+            $table->string('code')->unique();
             $table->bigInteger('category_id')->unsigned();
             $table->tinyInteger('brand_id')->unsigned();          
             $table->string('alias',255)->unique();          
@@ -43,6 +44,7 @@ class CreateProductsTable extends Migration
             $table->unsignedBigInteger('product_id')->unsigned()->index();
             $table->string('lang', 2);
             $table->string('title',255);
+            $table->string('unit',255)->default(NULL)->nullable();
             $table->text('content')->nullable();
             $table->string('keywords',255)->default(NULL)->nullable();
             $table->string('description',255)->default(NULL)->nullable();
